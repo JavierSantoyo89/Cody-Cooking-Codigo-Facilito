@@ -3,7 +3,7 @@ import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export const Footer = () => {
   return (
-    <div>
+    <>
       <FooterContainer>
         <LeftSection>
           <Logo src="src/assets/imgs/cody-image.jpg" alt="Logo" />
@@ -25,12 +25,11 @@ export const Footer = () => {
         </RightSection>
       </FooterContainer>
       <CenterSection>Copyright 2024 Cody Cooking</CenterSection>
-    </div>
+    </>
   );
 };
 
 const FooterContainer = styled.footer`
-  // background-color: #333;
   color: #fff;
   padding: 1rem;
   display: flex;
