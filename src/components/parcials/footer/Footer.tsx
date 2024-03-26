@@ -36,7 +36,8 @@ const FooterContainer = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 824px;
+  width: 90%;
+  margin: 50px auto;
 `;
 
 const LeftSection = styled.div`
@@ -76,4 +77,5 @@ const Icon = styled.a`
 const CenterSection = styled.div`
   display: block;
   font-size: 8px;
+  text-align: center;
 `;

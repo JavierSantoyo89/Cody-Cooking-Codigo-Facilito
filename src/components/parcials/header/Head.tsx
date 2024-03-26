@@ -40,14 +40,15 @@ export const Head = () => {
 };
 
 const HeaderContainer = styled.header`
-  background-color: white;
-  border-radius: 28px;
+  background-color: #fafafa;
+  border-radius: 32px;
   color: #242424;
-  padding: 1rem;
+  padding:20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 824px;
+  width: 90%;
+  margin: 50px auto;
 `;
 
 const LeftSection = styled.div`
