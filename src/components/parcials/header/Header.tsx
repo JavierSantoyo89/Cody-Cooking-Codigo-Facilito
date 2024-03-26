@@ -2,39 +2,47 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { IoSearch } from "react-icons/io5";
 
+import { ResponsiveContainer as BaseContainer } from "../../common/layout"
+
 export const Header = () => {
   return (
-    <HeaderContainer>
-      <LeftSection>
-        <Logo src="src/assets/imgs/cody-image.jpg" alt="Logo" />
-        <TextContainer>
-          <Text>Cody</Text>
-          <Text>Cooking</Text>
-        </TextContainer>
-      </LeftSection>
-      <CenterSection>
-        <MarginSection>
-          <Link to="/">Home</Link>
-        </MarginSection>
-        <MarginSection>
-          <Link to="/login">Recetas</Link>
-        </MarginSection>
-        <MarginSection>
-          <Link to="/perfil">Tipos de cocina</Link>
-        </MarginSection>
-        <MarginSection>
-          <Link to="/perfil">Sobre nosotros</Link>
-        </MarginSection>
-      </CenterSection>
-      <RightSection>
-        <Icon href="https://www.facebook.com">
-          <IoSearch />
-        </Icon>
-        <SubscribeButton>suscribirse</SubscribeButton>
-      </RightSection>
-    </HeaderContainer>
+    <ResponsiveContainer>
+      <HeaderContainer>
+        <LeftSection>
+          <Logo src="src/assets/imgs/cody-image.jpg" alt="Logo" />
+          <TextContainer>
+            <Text>Cody</Text>
+            <Text>Cooking</Text>
+          </TextContainer>
+        </LeftSection>
+        <CenterSection>
+          <MarginSection>
+            <Link to="/">Home</Link>
+          </MarginSection>
+          <MarginSection>
+            <Link to="/login">Recetas</Link>
+          </MarginSection>
+          <MarginSection>
+            <Link to="/perfil">Tipos de cocina</Link>
+          </MarginSection>
+          <MarginSection>
+            <Link to="/perfil">Sobre nosotros</Link>
+          </MarginSection>
+        </CenterSection>
+        <RightSection>
+          <Icon href="https://www.facebook.com">
+            <IoSearch />
+          </Icon>
+          <SubscribeButton>suscribirse</SubscribeButton>
+        </RightSection>
+      </HeaderContainer>
+    </ResponsiveContainer>
   );
 };
+
+const ResponsiveContainer = styled(BaseContainer)`
+  padding: 30px 0;
+`;
 
 const HeaderContainer = styled.header`
   background-color: white;
@@ -44,7 +52,7 @@ const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 824px;
+  width: 100%;
 `;
 
 const LeftSection = styled.div`
