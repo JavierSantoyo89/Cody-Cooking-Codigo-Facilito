@@ -4,6 +4,7 @@ import { Error404 } from "../components/error404/Error404";
 import { Login } from "../views/login/Login";
 import { Perfil } from "../views/perfil/Perfil";
 import { Layout } from "../components/parcials/layout/Layout";
+import Favorites from "../views/favorites";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/favorites",
+        element: <Favorites />,
       },
     ],
     errorElement: <Error404 />,

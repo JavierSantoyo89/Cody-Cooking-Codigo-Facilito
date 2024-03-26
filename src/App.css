@@ -1,13 +1,16 @@
 #root {
-
+/*
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   text-align: center;
+*/
   height: 100vh;
 
 }
+
+/*
 
 .logo {
   height: 6em;
@@ -44,3 +47,5 @@
 .read-the-docs {
   color: #324251;
 }
+
+*/
