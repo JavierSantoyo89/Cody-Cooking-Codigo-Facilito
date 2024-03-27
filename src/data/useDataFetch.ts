@@ -17,7 +17,7 @@ const useDataFetch = async () => {
     console.log("finalizo el fetch");
   }
   }
-  return { isLoading, data: data || [], getFetch };
+  return { isLoading, data, getFetch };
 };
 
 export default useDataFetch;
