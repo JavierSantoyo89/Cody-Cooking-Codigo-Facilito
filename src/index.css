@@ -1,12 +1,17 @@
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: #fafafa;
   background-color: #324251;
+  --white: #fafafa;
+  --light-green: #87C159;
+  --dark-green: #058240;
+  --yelow: #F3C301;
+  --grey-innactive: #50504D;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,12 +24,12 @@
 }
 
 a {
-  font-weight: 500;
-  color: #242424;
+  font-weight: 600;
+  color: var(--grey-innactive);
   text-decoration: inherit;
 }
 a:hover {
-  color: #008244;
+  color: var(--dark-green);
 }
 
 body {

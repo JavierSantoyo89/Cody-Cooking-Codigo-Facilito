@@ -17,23 +17,23 @@ export const Header = () => {
         </LeftSection>
         <CenterSection>
           <MarginSection>
-            <Link to="/">Home</Link>
+            <Link to="/">HOME</Link>
           </MarginSection>
           <MarginSection>
-            <Link to="/login">Recetas</Link>
+            <Link to="/login">RECETAS</Link>
           </MarginSection>
           <MarginSection>
-            <Link to="/perfil">Tipos de cocina</Link>
+            <Link to="/perfil">TIPOS DE COCINA</Link>
           </MarginSection>
           <MarginSection>
-            <Link to="/perfil">Sobre nosotros</Link>
+            <Link to="/perfil">SOBER NOSOTROS</Link>
           </MarginSection>
         </CenterSection>
         <RightSection>
           <Icon href="https://www.facebook.com">
             <IoSearch />
           </Icon>
-          <SubscribeButton>suscribirse</SubscribeButton>
+          <SubscribeButton>INICIAR SESION</SubscribeButton>
         </RightSection>
       </HeaderContainer>
     </ResponsiveContainer>
@@ -47,7 +47,7 @@ const ResponsiveContainer = styled(BaseContainer)`
 const HeaderContainer = styled.header`
   background-color: white;
   border-radius: 32px;
-  color: #242424;
+  color: #262522;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -71,12 +71,14 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
+  font-weight: 600;
 `;
 
 const Text = styled.p`
-  font-size: 14px;
+  font-size: 15px;
   margin: 0;
   line-height: normal;
+  font-weight: 600;
 `;
 
 const RightSection = styled.div`
@@ -119,12 +121,13 @@ const MarginSection = styled.div`
 `;
 
 const SubscribeButton = styled.button`
-  background-color: #80c160;
+  background-color: #87C159;
   color: #ffffff;
   border: none;
   border-radius: 20px;
   padding: 10px 20px;
   font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
   /* Cambia el color de fondo cuando el botón es presionado */
