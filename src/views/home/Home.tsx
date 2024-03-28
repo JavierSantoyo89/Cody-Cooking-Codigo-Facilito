@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Loading } from "../../components/loadin/Loading";
+import Main from "./mainContent/Main";
 
 // import {useDataFetch,isLoading, data} from "../../data/useDataFetch";
 export const Home = () => {
@@ -12,8 +13,8 @@ export const Home = () => {
   }, []);
   return (
     <div>
-      <h1>Home ...</h1>
       {isLoading === true ? <Loading /> : null}
+      <Main/>
     </div>
   );
 };

@@ -33,11 +33,12 @@ export const Footer = () => {
 
 const FooterContainer = styled.footer`
   color: #fff;
-  padding: 1rem;
+  padding-bottom: 30px;
+  margin: 50px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 824px;
+  width: 90%;
 
 `;
 
