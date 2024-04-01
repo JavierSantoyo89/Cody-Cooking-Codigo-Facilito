@@ -3,7 +3,6 @@ import RecipeCard from './index'
 
 
 describe('RecipeCard', () => {
-
     const props = {
         image: 'image.jpg',
         title: 'Recipe Title',
@@ -29,10 +28,9 @@ describe('RecipeCard', () => {
     });
 
     test('should change to favorite', () => {
-        const { debug } = render(
+        render(
             <RecipeCard {...props} />
-        )
-        debug();
+        );
 
         // Utiliza getByRole, getByTestId, o cualquier otro selector para obtener el elemento
         const likeIcon = screen.getByTestId('like-icon');
