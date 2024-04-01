@@ -21,7 +21,7 @@ export default function Carousel(props: Props) {
     }
   });
 
-  const selectNewImage = (index: number, images: string[], next = true) => {
+  const selectNewImage = (_index: number, images: string[], next = true) => {
     setLoaded(false);
     setTimeout(() => {
       const condition = next
