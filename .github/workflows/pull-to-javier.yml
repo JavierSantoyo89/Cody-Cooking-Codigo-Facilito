@@ -2,10 +2,10 @@ name: pull to Javier
 on:
     push:
         branches:
-            - Javier
+            - develop
     pull_request:
         branches:
-            - Javier
+            - develop
 
 jobs:
   pull:
