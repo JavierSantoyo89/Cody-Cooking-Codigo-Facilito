@@ -28,7 +28,7 @@ Tengo mucha curiosidad por el lado del Diseño UX/UI para poder crear interfaces
 <table>
     <tbody>
         <tr>
-            <td rowspan=4 align="center"><img src="./utils/Javier.jpg" alt="Agustin" width="280px">Francisco Javier Santoyo Rios</td>
+            <td rowspan=4 align="center"><img src="./utils/Javier.jpg" alt="Javier" width="280px">Francisco Javier Santoyo Rios</td>
             <td align="center">Soy desarrollador web Full Stack especializado en backend, frontend y testing, titulado en LTI. A pesar de tener una discapacidad motriz, busco oportunidades de desarrollo remoto.
             <br>
             Tengo experiencia en proyectos remotos, trabajando con responsabilidad, en equipo y siguiendo las políticas de privacidad del cliente/empresa. Estoy comprometido con ofrecer soluciones de calidad en el desarrollo web.
@@ -39,6 +39,21 @@ Tengo mucha curiosidad por el lado del Diseño UX/UI para poder crear interfaces
 <a href="https://www.linkedin.com/in/javiersantoyor">Linkedin</a>
 <a href="https://javiersantoyo.dev/">Portafolio</a>
 <a href="https://twitter.com/FcoSantoyoRios">Twitter{X}</a>
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+    <tbody>
+        <tr>
+            <td rowspan=4 align="center"><img src="./utils/Mayra.jpg" alt="Mayra" width="1040px">Mayra Macedo</td>
+            <td align="center">Soy una desarrolladora front. Siempre dispuesta a aprender cosas nuevas, a sumergirme en nuevos desafíos y tecnologías para mejorar mis habilidades y contribuir al desarrollo de soluciones web innovadoras. Me encanta la tecnología. Además de mi enfoque en el desarrollo frontend, también tengo interés en el diseño de interfaces de usuario (UI) y la experiencia de usuario (UX). Considero que es importante comprender cómo los usuarios interactúan con una aplicación y diseñar interfaces intuitivas es fundamental para crear productos exitosos  🙌 ✨.
+            </td>
+        </tr>
+<tr>
+<td align="center">
+<a href="https://www.linkedin.com/in/vanessa-macedo-huaman?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Linkedin</a>
 </td>
 </tr>
 </tbody>
