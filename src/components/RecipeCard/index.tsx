@@ -52,7 +52,7 @@ const RecipeCard = ({ image, title, description }: {
     title: string; 
     description: string; 
 }) => {
-    const [isFavorite, setIsFavorite] = useState(true);
+    const [isFavorite, setIsFavorite] = useState(false);
 
     const toogleFavorite = () => {
         setIsFavorite((currentValue: boolean) => !currentValue);
@@ -63,7 +63,11 @@ const RecipeCard = ({ image, title, description }: {
             <ImageContainer style={
                 { backgroundImage: `url(${image})` }
             }>
-                <LikeIcon onClick={toogleFavorite}>
+                <LikeIcon 
+                    className={`heart-icon ${isFavorite ? 'is-favorite' : ''}`}
+                    onClick={toogleFavorite}
+                    data-testid="like-icon"
+                >
                     <HeartIcon
                         isFavorite={isFavorite}
                     />
