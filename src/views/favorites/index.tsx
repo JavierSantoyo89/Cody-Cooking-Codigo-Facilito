@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 import RecipeCard from '../../components/RecipeCard';
-import trcipeImg from '../../assets/imgs/trcipe-img.jpg';
 import { GridContainer } from '../../components/common/ui';
 import MainWrapper from '../../components/common/MainWrapper';
 import { Title as BaseTitle } from '../../components/common/titles';
+
+import { useGetRecipesService } from '../../hooks/useGetRecipes';
 
 const Title = styled(BaseTitle)`
     color: #F3C301;
@@ -13,47 +14,25 @@ const Title = styled(BaseTitle)`
 `;
 
 
-const recipes = [
-    {
-        image: trcipeImg,
-        title: 'Savory Herb-Infused Chicken', 
-        description: 'Indulge in the rich and savory symphony of flavors with our Savory Herb-Infused Chicken',
-    },
-    {
-        image: trcipeImg,
-        title: 'Savory Herb-Infused Chicken', 
-        description: 'Indulge in the rich and savory symphony of flavors with our Savory Herb-Infused Chicken',
-    },
-    {
-        image: trcipeImg,
-        title: 'Savory Herb-Infused Chicken', 
-        description: 'Indulge in the rich and savory symphony of flavors with our Savory Herb-Infused Chicken',
-    },
-    {
-        image: trcipeImg,
-        title: 'Savory Herb-Infused Chicken', 
-        description: 'Indulge in the rich and savory symphony of flavors with our Savory Herb-Infused Chicken',
-    }
-]
-
-
 const Favorites = () => {
-  return (
-    <MainWrapper>
-        <Title>Favoritos</Title>
-        
-        <GridContainer>
-            {recipes.map(({ image, title, description }) => (
-                <RecipeCard 
-                    image={image}
-                    title={title}
-                    description={description}
-                />
-            ))}
-        </GridContainer>
+    const { recipes } = useGetRecipesService('https://www.themealdb.com/api/json/v1/1/search.php?f=b');
 
-    </MainWrapper>
-  );
+    return (
+        <MainWrapper>
+            <Title>Favoritos</Title>
+            
+            <GridContainer>
+                {recipes.map(({ image, title, description }) => (
+                    <RecipeCard 
+                        image={image}
+                        title={title}
+                        description={description}
+                    />
+                ))}
+            </GridContainer>
+
+        </MainWrapper>
+    );
 };
 
 export default Favorites;
