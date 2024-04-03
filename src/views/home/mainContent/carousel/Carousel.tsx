@@ -23,7 +23,7 @@ export default function Carousel(props: Props) {
         }
     });
 
-    const selectNewImage = (index: number, images: string[], next = true) => {
+    const selectNewImage = (_index: number, images: string[], next = true) => {
         setLoaded(false);
         setTimeout(() => {
             const condition = next ? selectedIndex < images.length - 1: selectedIndex > 0;
@@ -89,7 +89,8 @@ const CarouselContainer = styled.div`
 const CarouselImg = styled.img`
     max-width: 800px;
     width: 90%;
-    height: auto;
+    height: 250px;
+    object-fit: cover;
     transition: 1s;
     opacity: 0;
     &.loaded {
