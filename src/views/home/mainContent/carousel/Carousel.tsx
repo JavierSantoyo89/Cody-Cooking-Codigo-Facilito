@@ -97,7 +97,7 @@ const CarouselContainer = styled.div`
 `;
 
 const CarouselImg = styled.img`
-  max-width: 800px;
+  max-width: 1000px;
   width: 90%;
   height: 250px;
   object-fit: cover;
