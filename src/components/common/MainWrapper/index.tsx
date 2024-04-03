@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 
 const Wrapper = styled.div`
-    background: white;
+    background: #fafafa;
     border-radius: 100px;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto 20px;
     padding: 0 20px;
     padding: 50px;

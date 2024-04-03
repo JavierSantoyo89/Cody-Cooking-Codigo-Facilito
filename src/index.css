@@ -72,3 +72,26 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #50504d;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #058240;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #058240;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

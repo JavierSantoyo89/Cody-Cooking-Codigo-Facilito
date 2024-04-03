@@ -15,6 +15,7 @@ const ImageContainer = styled.div`
     overflow: hidden;
     position: relative;
     width: 100%;
+    background-size: cover;
 `;
 
 const LikeIcon = styled.div`
