@@ -3,6 +3,8 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7da82678-8f5a-4c67-8cab-62b92803f4aa/deploy-status)](https://app.netlify.com/sites/codycooking/deploys)
 ![GitHub License](https://img.shields.io/github/license/JavierSantoyo89/Cody-Cooking-Codigo-Facilito)
 
+Eres desarrollador? entra en [modo dev](./ReadmeDev.md)
+
 El proyecto esta realiado vpn React + TypeScript + Vite + zustand
 
 <img src="./utils/CodyCooking.png" alt="image" width="50%" height="auto">

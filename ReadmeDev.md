@@ -6,15 +6,20 @@ Welcome to the team, this is the basic about the project, if you have any questi
 
 * Node.js v21.7.1
 * ReactJs v18.2
+* Create your branch
+* Merge only on develop
 
 ## Folder structure
 
 ![Folders](./utils/Folder%20struture.png)
 
-
 ## Gitflow
 
 ![Gitflow](./utils/gitflow.png)
+
+## Figma design
+
+[Figma](https://www.figma.com/file/6ThLmgDx4MBJiY7gcbl4Iz/Cody-Cooking-Prototype?type=design&node-id=0%3A1&mode=design&t=jgKdDBiHnHxM1gM8-1)
 
 ## Fetch structure
 
@@ -69,4 +74,3 @@ Don't need parameters
 | strCategory | String | name of the category |
 
 --------
-Site: [EDAMAM](https://developer.edamam.com/es/api-recetas-edamam-documentacion)
