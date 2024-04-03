@@ -99,7 +99,8 @@ const CarouselContainer = styled.div`
 const CarouselImg = styled.img`
   max-width: 800px;
   width: 90%;
-  height: auto;
+  height: 250px;
+  object-fit: cover;
   transition: 1s;
   opacity: 0;
   &.loaded {
