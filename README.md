@@ -49,8 +49,8 @@ Tengo mucha curiosidad por el lado del Diseño UX/UI para poder crear interfaces
 <table>
     <tbody>
         <tr>
-            <td rowspan=4 align="center"><img src="./utils/Mayra.jpg" alt="Mayra" width="1040px">Mayra Macedo</td>
-            <td align="center">Soy una desarrolladora front. Siempre dispuesta a aprender cosas nuevas, a sumergirme en nuevos desafíos y tecnologías para mejorar mis habilidades y contribuir al desarrollo de soluciones web innovadoras. Me encanta la tecnología. Además de mi enfoque en el desarrollo frontend, también tengo interés en el diseño de interfaces de usuario (UI) y la experiencia de usuario (UX). Considero que es importante comprender cómo los usuarios interactúan con una aplicación y diseñar interfaces intuitivas es fundamental para crear productos exitosos  🙌 ✨.
+            <td rowspan=4 align="center"><img src="./utils/Mayra.jpg" alt="Mayra" width="365px">Mayra Macedo</td>
+            <td align="center">¡Hola! Soy una desarrolladora front . Siempre dispuesta a aprender cosas nuevas, a sumergirme en nuevos desafíos y tecnologías para mejorar mis habilidades y contribuir al desarrollo de soluciones web innovadoras 🙌 ✨.
             </td>
         </tr>
 <tr>
