@@ -53,6 +53,12 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
+
+  @media (max-width: 960px) {
+    gap: 20px;
+    flex-direction: column;
+  }
 `;
 
 const LeftSection = styled.div`
@@ -98,6 +104,15 @@ const CenterSection = styled.div`
   display: flex;
   font-size: 12px;
   gap: 10px;
+
+  @media (max-width: 960px) {
+    gap: 10px;
+  }
+
+  @media (max-width: 620px) {
+    flex-direction: column;
+    text-align: center;
+  }
 `;
 
 const MarginSection = styled.div`

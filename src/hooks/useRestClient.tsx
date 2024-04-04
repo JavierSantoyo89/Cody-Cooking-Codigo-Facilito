@@ -17,7 +17,7 @@ export function useRestClient(method: HttpMethod): [
   const [error, setError] = useState<unknown>(null);
 
   const request = useCallback(
-    async (url: string, options?: AxiosRequestConfig) => {
+    (async (url: string, options?: AxiosRequestConfig) => {
       setLoading(true);
       setError(null);
       try {
@@ -30,7 +30,7 @@ export function useRestClient(method: HttpMethod): [
         setError(err);
         throw err;
       }
-    },
+    }),
     [method]
   );
 
