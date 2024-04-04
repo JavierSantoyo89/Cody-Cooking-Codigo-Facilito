@@ -34,12 +34,16 @@ export const Footer = () => {
 const FooterContainer = styled.footer`
   color: #fff;
   padding-bottom: 30px;
-  margin: 50px 0;
+  margin: 50px 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 100%;
 
+  @media (max-width: 620px) {
+    gap: 20px;
+    flex-direction: column;
+  }
 `;
 
 const LeftSection = styled.div`

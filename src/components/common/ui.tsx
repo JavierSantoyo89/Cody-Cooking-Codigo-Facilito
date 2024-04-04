@@ -30,6 +30,15 @@ const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Tres columnas con igual ancho */
   grid-gap: 20px; /* Espacio entre los elementos */
+
+  @media (max-width: 960px) {
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas con igual ancho */
+  }
+
+  @media (max-width: 620px) {
+    grid-template-columns: repeat(1, 1fr); /* Dos columnas con igual ancho */
+    grid-gap: 20px 0;
+  }
 `;
 
 export {

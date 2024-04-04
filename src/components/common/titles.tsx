@@ -6,6 +6,10 @@ const Title = styled.h1`
     font-size: 48px;
     margin: 0;
     line-height: initial;
+
+    @media (max-width: 620px) {
+        font-size: 36px;
+    }
 `;
 
 const Subtitle = styled(Title).attrs({ as: 'h2' })`

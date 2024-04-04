@@ -6,6 +6,8 @@ import MainWrapper from '../../components/common/MainWrapper';
 import { Title as BaseTitle } from '../../components/common/titles';
 
 import { useGetRecipesService } from '../../hooks/useGetRecipes';
+import { baseUrl } from '../../constants'
+import { getRandomLetter } from '../../utils'
 
 const Title = styled(BaseTitle)`
     color: #F3C301;
@@ -13,19 +15,19 @@ const Title = styled(BaseTitle)`
     text-align: center;
 `;
 
+const letterToFilter = getRandomLetter(); // Puedes obtener una letra aleatoria
 
-const Favorites = () => {
-    const { recipes } = useGetRecipesService('https://www.themealdb.com/api/json/v1/1/search.php?f=b');
-
-    console.log('favorites')
+const Recipes = () => {
+    const { recipes } = useGetRecipesService(`${baseUrl}search.php?f=${letterToFilter}`);
 
     return (
         <MainWrapper>
-            <Title>Favoritos</Title>
+            <Title>Recetas que inician con: {letterToFilter}</Title>
             
             <GridContainer>
-                {recipes.map(({ image, title, description }) => (
+                {recipes.map(({ image, title, description, id }) => (
                     <RecipeCard 
+                        key={id}
                         image={image}
                         title={title}
                         description={description}
@@ -37,4 +39,4 @@ const Favorites = () => {
     );
 };
 
-export default Favorites;
+export default Recipes;
