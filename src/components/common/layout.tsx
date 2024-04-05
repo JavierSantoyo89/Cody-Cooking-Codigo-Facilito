@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
 const ResponsiveContainer = styled.div`
-    width: 90%;
-    max-width: 1200px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
 
     /* Responsive styles */
-    @media screen and (max-width: 768px) {
-        padding: 0 10px;
+    @media (max-width: 960px) {
+        margin: 0 5%;
+        padding: 20px;
+        width: 90%;
     }
 `;
 
