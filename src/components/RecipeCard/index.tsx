@@ -84,7 +84,6 @@ const RecipeCard = ({
                 { backgroundImage: `url(${image})` }
             }>
                 <LikeIcon 
-                    className={`heart-icon ${isFavorite ? 'is-favorite' : ''}`}
                     onClick={handleOnClick}
                     data-testid="like-icon"
                 >
