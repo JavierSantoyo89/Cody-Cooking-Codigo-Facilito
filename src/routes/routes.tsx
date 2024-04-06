@@ -6,6 +6,7 @@ import { Perfil } from "../views/perfil/Perfil";
 import { Layout } from "../components/parcials/layout/Layout";
 import Favorites from "../views/favorites";
 import Recipes from "../views/recipes";
+import Details from "../views/detail/Detail";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: '/details',
+        element: <Details />,
       },
       {
         path: '/perfil',
