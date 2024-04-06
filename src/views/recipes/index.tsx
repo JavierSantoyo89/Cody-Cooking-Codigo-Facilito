@@ -9,6 +9,10 @@ import { useGetRecipesService } from '../../hooks/useGetRecipes';
 import { baseUrl } from '../../constants'
 import { getRandomLetter } from '../../utils'
 
+import type { Recipe } from '../../types/recipes';
+
+import useFavorites from '../../hooks/useFavorites';
+
 const Title = styled(BaseTitle)`
     color: #F3C301;
     margin-bottom: 30px;
@@ -20,17 +24,21 @@ const letterToFilter = getRandomLetter(); // Puedes obtener una letra aleatoria
 const Recipes = () => {
     const { recipes } = useGetRecipesService(`${baseUrl}search.php?f=${letterToFilter}`);
 
+    const {toogleFavorites, isFavoriteMap} = useFavorites();
+
+    const isFavorite = (recipe: Recipe) => !!isFavoriteMap[recipe.id];
+
     return (
         <MainWrapper>
             <Title>Recetas que inician con: {letterToFilter}</Title>
             
             <GridContainer>
-                {recipes.map(({ image, title, description, id }) => (
-                    <RecipeCard 
-                        key={id}
-                        image={image}
-                        title={title}
-                        description={description}
+                {recipes.map((recipe) => (
+                    <RecipeCard
+                        isFavorite={isFavorite(recipe)}
+                        key={recipe.id}
+                        toogleFavorite={toogleFavorites}
+                        {...recipe}
                     />
                 ))}
             </GridContainer>
