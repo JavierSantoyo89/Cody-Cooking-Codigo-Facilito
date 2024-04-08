@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import HeartIcon from '../common/icons/HeartIcon'
@@ -68,6 +69,12 @@ const RecipeCard = ({
     toogleFavorite: (newFavorite: Recipe) => void;
 }) => {
 
+    const navigate = useNavigate();
+
+    const handleRedirect = () => {
+        navigate(`/recipe-detail/${id}`);
+    };
+
     const handleOnClick = useCallback(() => {
         toogleFavorite({
             id,
@@ -95,13 +102,11 @@ const RecipeCard = ({
                 </LikeIcon>
             </ImageContainer>
             <ContentContainer>
-                <CardTitle>
-                    {title}
-                </CardTitle>
+                <CardTitle>{title}</CardTitle>
                 <Paragraph>
                     {elipsis(description)}
                 </Paragraph>
-                <Button>Ver</Button>
+                <Button onClick={handleRedirect}>Ver</Button>
             </ContentContainer>
 
         </CardContainer>
