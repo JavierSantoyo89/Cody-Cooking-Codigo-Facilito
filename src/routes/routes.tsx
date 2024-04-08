@@ -7,7 +7,6 @@ import { Layout } from "../components/parcials/layout/Layout";
 import Favorites from "../views/favorites";
 import Recipes from "../views/recipes";
 import Detail from "../views/detail/Detail";
-import RecipeDetail from "../views/recipe-detail";
 
 const router = createBrowserRouter([
   {
