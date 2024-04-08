@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
-import type { Recipe } from '../../types/recipes';
-import RecipeCard from '../../components/RecipeCard';
+import RecipesList from '../../components/RecipesList';
 import { GridContainer } from '../../components/common/ui';
 import MainWrapper from '../../components/common/MainWrapper';
 import { Title as BaseTitle, Subtitle as BaseSubtitle } from '../../components/common/titles';
-
 
 import useFavorites from '../../hooks/useFavorites';
 
@@ -21,9 +19,7 @@ const Subtitle = styled(BaseSubtitle)`
 `;
 
 const Favorites = () => {
-
-    const {favorites, isFavoriteMap, toogleFavorites} = useFavorites();
-    const isFavorite = (recipe: Recipe) => !!isFavoriteMap[recipe.id];
+    const {favorites} = useFavorites();
 
     return (
         <MainWrapper>
@@ -32,14 +28,7 @@ const Favorites = () => {
             {favorites.length > 0
                 ? (
                     <GridContainer>
-                        {favorites.map((favorite) => (
-                            <RecipeCard
-                            isFavorite={isFavorite(favorite)}
-                            key={favorite.id}
-                            toogleFavorite={toogleFavorites}
-                            {...favorite}
-                        />
-                        ))}
+                        <RecipesList recipes={favorites} />
                     </GridContainer>
                 )
                 : <Subtitle>No tienes favoritos :(</Subtitle>
