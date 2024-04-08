@@ -1,12 +1,18 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import RecipeCard from './index'
+import RecipeCard from './index';
+
+const toogleFavoriteFn = jest.fn();
 
 
 describe('RecipeCard', () => {
     const props = {
+        id: '1',
         image: 'image.jpg',
         title: 'Recipe Title',
-        description: 'Recipe description'
+        description: 'Recipe description',
+        video: 'video',
+        isFavorite: false,
+        toogleFavorite: toogleFavoriteFn,
     }
 
     test('should render correctly', () => {
@@ -35,14 +41,11 @@ describe('RecipeCard', () => {
         // Utiliza getByRole, getByTestId, o cualquier otro selector para obtener el elemento
         const likeIcon = screen.getByTestId('like-icon');
 
-        // Verifica que el elemento no tenga la clase "is-favorite"
-        expect(likeIcon).not.toHaveClass('is-favorite');
-
         // Hacemos click en el icono de corazón
         fireEvent.click(likeIcon);
 
         // Verifica que el elemento ahora tenga la clase "is-favorite"
-        expect(likeIcon).toHaveClass('is-favorite');
+        expect(toogleFavoriteFn).toHaveBeenCalledTimes(1);
 
     })
 })
