@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import RecipeCard from '../../components/RecipeCard';
 import { GridContainer } from '../../components/common/ui';
 import MainWrapper from '../../components/common/MainWrapper';
-import { Title as BaseTitle } from '../../components/common/titles';
+import { Title as BaseTitle, Subtitle as BaseSubtitle } from '../../components/common/titles';
 
 import { useGetRecipesService } from '../../hooks/useGetRecipes';
 import { baseUrl } from '../../constants'
@@ -19,6 +19,11 @@ const Title = styled(BaseTitle)`
     text-align: center;
 `;
 
+const Subtitle = styled(BaseSubtitle)`
+    color: #666666;
+    text-align: center;
+`;
+
 const letterToFilter = getRandomLetter(); // Puedes obtener una letra aleatoria
 
 const Recipes = () => {
@@ -28,21 +33,27 @@ const Recipes = () => {
 
     const isFavorite = (recipe: Recipe) => !!isFavoriteMap[recipe.id];
 
+
+
     return (
         <MainWrapper>
             <Title>Recetas que inician con: {letterToFilter}</Title>
-            
-            <GridContainer>
-                {recipes.map((recipe) => (
-                    <RecipeCard
-                        isFavorite={isFavorite(recipe)}
-                        key={recipe.id}
-                        toogleFavorite={toogleFavorites}
-                        {...recipe}
-                    />
-                ))}
-            </GridContainer>
 
+            {recipes.length > 0
+                ? (
+                    <GridContainer>
+                        {recipes.map((recipe) => (
+                            <RecipeCard
+                                isFavorite={isFavorite(recipe)}
+                                key={recipe.id}
+                                toogleFavorite={toogleFavorites}
+                                {...recipe}
+                            />
+                        ))}
+                    </GridContainer>
+                )
+                : <Subtitle>No hay recetas que empiecen co {letterToFilter}</Subtitle>
+            }
         </MainWrapper>
     );
 };

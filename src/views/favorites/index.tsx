@@ -44,9 +44,6 @@ const Favorites = () => {
                 )
                 : <Subtitle>No tienes favoritos :(</Subtitle>
             }
-            
-            
-
         </MainWrapper>
     );
 };
