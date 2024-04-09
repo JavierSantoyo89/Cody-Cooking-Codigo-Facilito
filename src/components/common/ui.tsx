@@ -41,10 +41,21 @@ const GridContainer = styled.div`
   }
 `;
 
+const GridDetailContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas con igual ancho */
+  grid-gap: 50px; /* Espacio entre los elementos */
+
+  @media (max-width: 815px) {
+    grid-template-columns: repeat(1, 1fr); /* Dos columnas con igual ancho */
+    grid-gap: 10px 0;
+  }
+`;
 export {
     Button,
     Link,
     Paragraph,
     Clear,
     GridContainer,
+    GridDetailContainer
 }

@@ -12,10 +12,13 @@ export const recipesMap = (recipes: Array<Meal> | undefined ) => {
             strInstructions,
         }) => ({
             id: idMeal,
-            video: strYoutube,
+            video: strYoutube.replace('https://www.youtube.com/watch?v=', ''),
             image: strMealThumb,
             title: strMeal,
             description: strInstructions,
         })) 
         : [];
 }
+
+// https://www.youtube.com/watch?v=dsJtgmAhFF4
+// https://www.youtube.com/embed/etbJ9ssgsWY?si=KHacn5RQcV8BFr3H
