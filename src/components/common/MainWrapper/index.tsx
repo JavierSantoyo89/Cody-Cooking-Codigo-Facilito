@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 
 const Wrapper = styled.div`
-    background: white;
+    background: #fafafa;
     border-radius: 100px;
     max-width: 960px;
     margin: 0 auto;

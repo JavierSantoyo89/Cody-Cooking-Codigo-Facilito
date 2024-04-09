@@ -7,7 +7,7 @@ const SvgComponent = ({ isFavorite }: { isFavorite: boolean }) => (
   >
     <g filter="url(#a)">
       <path
-        fill={isFavorite ? '#058240' : '#ffffff'}
+        fill={isFavorite ? '#058240 ' : '#fafafa'}
         d="m38 59-3.77-3.38C20.84 43.657 12 35.768 12 26.086 12 18.198 18.292 12 26.3 12c4.524 0 8.866 2.075 11.7 5.353C40.834 14.075 45.176 12 49.7 12 57.708 12 64 18.198 64 26.087c0 9.682-8.84 17.57-22.23 29.558L38 59Z"
       />
     </g>

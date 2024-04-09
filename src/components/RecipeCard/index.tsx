@@ -9,7 +9,7 @@ import { Paragraph, Button } from '../common/ui'
 import type { Recipe } from '../../types/recipes';
 
 
-const CardContainer = styled.div`
+export const CardContainer = styled.div`
     width: 100%;
 `;
 
@@ -19,6 +19,7 @@ const ImageContainer = styled.div`
     overflow: hidden;
     position: relative;
     width: 100%;
+    background-size: cover;
 `;
 
 const LikeIcon = styled.div`
@@ -72,7 +73,7 @@ const RecipeCard = ({
     const navigate = useNavigate();
 
     const handleRedirect = () => {
-        navigate(`/recipe-detail/${id}`);
+        navigate(`/detail/${id}`);
     };
 
     const handleOnClick = useCallback(() => {
