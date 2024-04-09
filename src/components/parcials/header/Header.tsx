@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import HeartIcon from '../../common/icons/HeartIcon';
-
 import useFavorites from '../../../hooks/useFavorites';
-
+import logOut from "../../../functions/logOut";
 import {
   ResponsiveContainer,
   HeaderContainer,
@@ -17,11 +16,18 @@ import {
   SubscribeButton,
   NumberFavorites,
 } from './styles'
-
+import {useUserStore} from '../../../store/userState'
 export const Header = () => {
 
+  const uid= useUserStore((state) => state.user?.uid);
   const {numberFavorites} = useFavorites();
+  const reset = useUserStore((state) => state.reset);
+const handleLogOut = () => {
+  logOut();
+  reset();
 
+
+}
   return (
     <ResponsiveContainer>
       <HeaderContainer>
@@ -58,9 +64,11 @@ export const Header = () => {
                 width="30px"
             />
           </Icon>
-        </Link>
-          <SubscribeButton>INICIAR SESION</SubscribeButton>
+        </Link>    
+          <SubscribeButton><Link to="/login">INICIAR SESION</Link></SubscribeButton>
         </RightSection>
+        <button onClick={handleLogOut}>Log out</button>
+        <p>{uid}</p>
       </HeaderContainer>
     </ResponsiveContainer>
   );
