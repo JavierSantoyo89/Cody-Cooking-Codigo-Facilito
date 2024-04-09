@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import HeartIcon from '../common/icons/Heart'
+import HeartIcon from '../common/icons/HeartIcon'
 import { CardTitle } from '../common/titles'
 import { Paragraph, Button } from '../common/ui'
+
+import type { Recipe } from '../../types/recipes';
+
 
 const CardContainer = styled.div`
     width: 100%;
@@ -21,8 +25,8 @@ const ImageContainer = styled.div`
 const LikeIcon = styled.div`
     cursor: pointer;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 20px;
+    top: 20px;
 `;
 
 const ContentContainer = styled.div`
@@ -48,16 +52,39 @@ const elipsis = (texto: string, longitudMaxima = 84) => {
     }
   }
 
-const RecipeCard = ({ image, title, description }: { 
+const RecipeCard = ({ 
+    id, 
+    image, 
+    title, 
+    description, 
+    video, 
+    toogleFavorite,
+    isFavorite
+}: { 
+    id: string;
     image: string;
     title: string; 
-    description: string; 
+    description: string;
+    video: string;
+    isFavorite: boolean;
+    toogleFavorite: (newFavorite: Recipe) => void;
 }) => {
-    const [isFavorite, setIsFavorite] = useState(false);
 
-    const toogleFavorite = () => {
-        setIsFavorite((currentValue: boolean) => !currentValue);
-      }
+    const navigate = useNavigate();
+
+    const handleRedirect = () => {
+        navigate(`/recipe-detail/${id}`);
+    };
+
+    const handleOnClick = useCallback(() => {
+        toogleFavorite({
+            id,
+            image,
+            title,
+            description,
+            video,
+        });
+    }, [id, image, title, description, video, toogleFavorite]);
 
     return (
         <CardContainer>
@@ -65,23 +92,22 @@ const RecipeCard = ({ image, title, description }: {
                 { backgroundImage: `url(${image})` }
             }>
                 <LikeIcon 
-                    className={`heart-icon ${isFavorite ? 'is-favorite' : ''}`}
-                    onClick={toogleFavorite}
+                    onClick={handleOnClick}
                     data-testid="like-icon"
                 >
                     <HeartIcon
-                        isFavorite={isFavorite}
+                        fill={isFavorite ? '#058240' : '#ffffff'}
+                        height="50px"
+                        width="50px"
                     />
                 </LikeIcon>
             </ImageContainer>
             <ContentContainer>
-                <CardTitle>
-                    {title}
-                </CardTitle>
+                <CardTitle>{title}</CardTitle>
                 <Paragraph>
                     {elipsis(description)}
                 </Paragraph>
-                <Button>Ver</Button>
+                <Button onClick={handleRedirect}>Ver</Button>
             </ContentContainer>
 
         </CardContainer>

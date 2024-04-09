@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
+import type { Recipe } from '../../types/recipes';
 import RecipeCard from '../../components/RecipeCard';
 import { GridContainer } from '../../components/common/ui';
 import MainWrapper from '../../components/common/MainWrapper';
-import { Title as BaseTitle } from '../../components/common/titles';
+import { Title as BaseTitle, Subtitle as BaseSubtitle } from '../../components/common/titles';
 
-import { useGetRecipesService } from '../../hooks/useGetRecipes';
+
+import useFavorites from '../../hooks/useFavorites';
 
 const Title = styled(BaseTitle)`
     color: #F3C301;
@@ -13,26 +15,35 @@ const Title = styled(BaseTitle)`
     text-align: center;
 `;
 
+const Subtitle = styled(BaseSubtitle)`
+    color: #666666;
+    text-align: center;
+`;
 
 const Favorites = () => {
-    const { recipes } = useGetRecipesService('https://www.themealdb.com/api/json/v1/1/search.php?f=b');
 
-    console.log('favorites')
+    const {favorites, isFavoriteMap, toogleFavorites} = useFavorites();
+    const isFavorite = (recipe: Recipe) => !!isFavoriteMap[recipe.id];
 
     return (
         <MainWrapper>
             <Title>Favoritos</Title>
-            
-            <GridContainer>
-                {recipes.map(({ image, title, description }) => (
-                    <RecipeCard 
-                        image={image}
-                        title={title}
-                        description={description}
-                    />
-                ))}
-            </GridContainer>
 
+            {favorites.length > 0
+                ? (
+                    <GridContainer>
+                        {favorites.map((favorite) => (
+                            <RecipeCard
+                            isFavorite={isFavorite(favorite)}
+                            key={favorite.id}
+                            toogleFavorite={toogleFavorites}
+                            {...favorite}
+                        />
+                        ))}
+                    </GridContainer>
+                )
+                : <Subtitle>No tienes favoritos :(</Subtitle>
+            }
         </MainWrapper>
     );
 };
