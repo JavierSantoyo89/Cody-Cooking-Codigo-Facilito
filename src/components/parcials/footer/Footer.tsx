@@ -14,7 +14,7 @@ export const Footer = () => {
             <Text>Cooking</Text>
           </TextContainer>
         </LeftSection>
-        <CenterSection>Copyright 2024 Cody Cooking</CenterSection>
+        <CenterSection>Copyright: © 2024 CODY COOKING.</CenterSection>
         <RightSection>
           <Icon href="https://www.facebook.com">
             <FaFacebook />
