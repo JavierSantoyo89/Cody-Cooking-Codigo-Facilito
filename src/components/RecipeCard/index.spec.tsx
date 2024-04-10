@@ -1,3 +1,5 @@
+import { BrowserRouter as Router } from "react-router-dom";
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import RecipeCard from './index';
 
@@ -17,7 +19,7 @@ describe('RecipeCard', () => {
 
     test('should render correctly', () => {
         render(
-            <RecipeCard {...props} />
+            <Router><RecipeCard {...props} /></Router>
         );
 
         // Use `screen.getByText` para encontrar elementos por su texto
@@ -35,7 +37,7 @@ describe('RecipeCard', () => {
 
     test('should change to favorite', () => {
         render(
-            <RecipeCard {...props} />
+            <Router><RecipeCard {...props} /></Router>
         );
 
         // Utiliza getByRole, getByTestId, o cualquier otro selector para obtener el elemento
