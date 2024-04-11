@@ -20,7 +20,7 @@ export const Home = () => {
     <div>
       <h1>{name}</h1>
       <p>{email}</p>
-      <img src ={imgPerfil} key={uid}/>
+      <img src={imgPerfil} key={uid}/>
       <p>{uid}</p>
       {isLoading === true ? <Loading /> : null}
       <Main/>
