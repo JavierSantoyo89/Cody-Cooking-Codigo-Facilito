@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import MainWrapper from "../common/MainWrapper";
 import { Title as BaseTitle } from "../common/titles";
+import { GridDetailContainer } from "../common/ui";
 import {
   Button as BaseButton,
   Link as BaseLink,
@@ -13,38 +14,7 @@ import { useUserStore } from "../../store/userState";
 import loginWithEmailPassword from "../../functions/loginWithEmailPassword";
 import registerUser from "../../functions/registerUser";
 import { mainStylis } from "styled-components/dist/models/StyleSheetManager";
-const Title = styled(BaseTitle)`
-  margin-bottom: 100px;
-  text-align: center;
-`;
-
-const InputText = styled.input`
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  color: #9a9a9a;
-  font-size: 16px;
-  margin-bottom: 30px;
-  padding: 8px;
-  width: 100%;
-`;
-
-const Button = styled(BaseButton)`
-  background: #9a9a9a;
-  color: black;
-`;
-
-const Link = styled(BaseLink)`
-  display: inline-block;
-`;
-
-const Paragraph = styled(BaseParagraph)`
-  display: inline-block;
-  margin-bottom: 10px;
-`;
+import loginWithGoogle from "../../functions/loginWithGoogle";
 
 const Login = () => {
   const [isUser, setIsUser] = useState(true);
@@ -66,8 +36,8 @@ const Login = () => {
     handleSubmit,
     // formState: { errors },
   } = useForm<Inputs>();
-  const {setUser} = useUserStore();
-const {setEmail} = useUserStore()
+  const { setUser } = useUserStore();
+  const { setEmail } = useUserStore();
 
   const onSubmit: SubmitHandler<Inputs> = (data, event) => {
     event?.preventDefault();
@@ -80,9 +50,8 @@ const {setEmail} = useUserStore()
       console.log("entro a registrar usuario");
       console.log(data);
       setUser(userName);
-      setEmail(email)
-      registerUser({ email}, { password })
-    
+      setEmail(email);
+      registerUser({ email }, { password });
     } else {
       console.log("entro a login");
       loginWithEmailPassword({ email }, { password });
@@ -91,40 +60,174 @@ const {setEmail} = useUserStore()
   return (
     <MainWrapper>
       <div>
-        <Title>¡Bienvenido!</Title>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          {!isUser && <label htmlFor="name">Nombre</label>}
-          {!isUser && (
-            <input id="name" {...register("name", { required: true })} />
-          )}
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            {...register("email", { required: true })}
-          />
-          <label htmlFor="password">Contraseña</label>
-          <input
-            type="password"
-            id="password"
-            {...register("password", { required: true })}
-          />
-          <Button>{isUser ? "Login" : "Crear cuenta"}</Button>
-          {isUser ? (
-            <Paragraph>
-              ¿Nuevo en recetas?{" "}
-              <Link onClick={toogleIsUser}>Crear cuenta</Link>
-            </Paragraph>
-          ) : (
-            <Paragraph>
-              ¿Ya tienes cuenta? <Link onClick={toogleIsUser}>Ingresar</Link>
-            </Paragraph>
-          )}
-          <Clear />
-        </form>
+        <Title>{isUser ? "¡Bienvenido!" : "Regístro de usuario"}</Title>
+        <GridDetailContainer>
+          <LeftContainer>
+            <FormElement onSubmit={handleSubmit(onSubmit)}>
+              {!isUser && <label htmlFor="name">Nombre</label>}
+              {!isUser && (
+                <Input
+                  id="name"
+                  placeholder="Nombre"
+                  {...register("name", { required: true })}
+                />
+              )}
+              <Input
+                type="email"
+                id="email"
+                placeholder="Email"
+                {...register("email", { required: true })}
+              />
+              <Input
+                type="password"
+                id="password"
+                placeholder="Contraseña"
+                {...register("password", { required: true })}
+              />
+              <Clear />
+              <Button>{isUser ? "Login" : "Crear cuenta"}</Button>
+              {isUser && (
+                <>
+                  <ParagraphLeft>-O bien-</ParagraphLeft>
+                  <GoogleButton onClick={loginWithGoogle}>
+                    <GoogleIcon src="/utils/GoogleLogo.svg" /> Acceder con
+                    Google
+                  </GoogleButton>           
+                </>
+
+              )}
+            </FormElement>
+          </LeftContainer>
+          <RightContainer>
+            <CodyImage src="/src/assets/imgs/Cody.svg" />
+            {isUser ? (
+              <>
+                <Paragraph>
+                  ¿Aún no tienes cuenta? <br />
+                  <Link onClick={toogleIsUser}>Regístrate</Link>
+                </Paragraph>
+              </>
+            ) : (
+              <Paragraph>
+                ¿Ya tienes cuenta? <Link onClick={toogleIsUser}>Volver al Login</Link>
+              </Paragraph>
+            )}
+          </RightContainer>
+        </GridDetailContainer>
       </div>
     </MainWrapper>
   );
 };
+const Title = styled(BaseTitle)`
+  color: #262522;
+  margin-bottom: 50px;
+  text-align: center;
+`;
+
+const FormElement = styled.form`
+  width: 100%;
+`
+
+const Input = styled.input`
+  color: #50504d;
+  background: transparent;
+  /* min-width: 300px; */
+  width: 100%;
+  height: 50px;
+  border-radius: 57px;
+  border: 1px solid #50504d;
+  display: block;
+  padding: 10px;
+  margin-bottom: 40px;
+`;
+
+const Button = styled(BaseButton)`
+  background: #87c159;
+  color: #fafafa;
+  width: 100%;
+  transition: .5s all ease-in-out;
+  &:hover {
+    scale: 1.2;
+  }
+`;
+
+const Link = styled(BaseLink)`
+  display: inline-block;
+  color: #f3c301;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration-line: underline;
+  transition: .5s all ease-in-out;
+  &:hover {
+    scale: 1.3;
+  }
+`;
+
+const Paragraph = styled(BaseParagraph)`
+  display: inline-block;
+  color: #262522;
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 10px;
+`;
+
+const ParagraphLeft = styled.p`
+  color: #262522;
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 10px;
+`;
+
+const GoogleButton = styled.button`
+  display: block;
+  color: rgba(0, 0, 0, 0.54);
+  background-color: #fafafa;
+  width: 55%;
+  font-family: "Roboto";
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.08),
+    0px 2px 3px 0px rgba(0, 0, 0, 0.17);
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  transition: .5s all ease-in-out;
+  &:hover {
+    scale: 1.3;
+  }
+`;
+
+const GoogleIcon = styled.img``;
+const CodyImage = styled.img`
+  width: 250px;
+  height: 250px;
+  mask-image: linear-gradient(157deg, #2b2b2b 80%, transparent);
+`;
+
+const LeftContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const RightContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default Login;
