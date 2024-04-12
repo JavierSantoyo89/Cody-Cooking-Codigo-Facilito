@@ -7,6 +7,6 @@ export default async function logOut() {
     const user = await signOut(auth);
     console.log("Usuario desconectado: ", user); 
   } catch (error) {
-    console.log(error);
+    console.log("Error al desconectarse: ",error);
   }
 }

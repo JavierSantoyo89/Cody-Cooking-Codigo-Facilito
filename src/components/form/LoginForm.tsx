@@ -15,7 +15,8 @@ import loginWithEmailPassword from "../../functions/loginWithEmailPassword";
 import registerUser from "../../functions/registerUser";
 // import { mainStylis } from "styled-components/dist/models/StyleSheetManager";
 import loginWithGoogle from "../../functions/loginWithGoogle";
-
+import cody from "../../assets/imgs/Cody.svg";
+import googleLogo from '../../assets/icons/GoogleLogo.svg'
 const Login = () => {
   const [isUser, setIsUser] = useState(true);
 
@@ -44,14 +45,14 @@ const Login = () => {
     // console.log("voila", email, password);
 
     if (!isUser) {
-      console.log("entro a registrar usuario");
-      console.log(data);
+      // console.log("entro a registrar usuario");
+      // console.log(data);
       userName = "Invitado";
       setUserName(userName);
       setEmail(email);
       registerUser({ email }, { password });
     } else {
-      console.log("entro a login");
+      // console.log("entro a login");
       loginWithEmailPassword({ email }, { password });
     }
   };
@@ -88,7 +89,7 @@ const Login = () => {
                 <>
                   <ParagraphLeft>-O bien-</ParagraphLeft>
                   <GoogleButton onClick={loginWithGoogle}>
-                    <GoogleIcon src="/utils/GoogleLogo.svg" /> Acceder con
+                    <GoogleIcon src={googleLogo} /> Acceder con
                     Google
                   </GoogleButton>
                 </>
@@ -96,7 +97,7 @@ const Login = () => {
             </FormElement>
           </LeftContainer>
           <RightContainer>
-            <CodyImage src="/src/assets/imgs/Cody.svg" />
+            <CodyImage src={cody} />
             {isUser ? (
               <>
                 <Paragraph>

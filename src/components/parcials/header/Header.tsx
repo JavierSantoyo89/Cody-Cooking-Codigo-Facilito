@@ -16,6 +16,7 @@ import {
   SubscribeButton,
   NumberFavorites,
 } from "./styles";
+import cody from "../../../assets/imgs/cody-image.jpg"
 import { useUserStore } from "../../../store/userState";
 export const Header = () => {
   const uid: string | null = useUserStore((state) => state.uid);
@@ -29,7 +30,7 @@ export const Header = () => {
     <ResponsiveContainer>
       <HeaderContainer>
         <LeftSection>
-          <Logo src="src/assets/imgs/cody-image.jpg" alt="Logo" />
+          <Logo src={cody} alt="Logo" />
           <TextContainer>
             <Text>Cody</Text>
             <Text>Cooking</Text>

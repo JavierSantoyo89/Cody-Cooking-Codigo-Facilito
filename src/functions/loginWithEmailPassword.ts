@@ -8,9 +8,10 @@ export default async function loginWithEmailPassword(
   { password }: { password: string }
 ) {
   try {
-    const user = await signInWithEmailAndPassword(auth, email, password);
-    console.log(user);
+    // const user = 
+    await signInWithEmailAndPassword(auth, email, password);
+    // console.log( user);
   } catch (error) {
-    console.log(error);
+    console.log("Error al cargar email y password: ",error);
   }
 }
