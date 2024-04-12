@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import MainWrapper from "../common/MainWrapper";
 import { Title as BaseTitle } from "../common/titles";
@@ -13,7 +13,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useUserStore } from "../../store/userState";
 import loginWithEmailPassword from "../../functions/loginWithEmailPassword";
 import registerUser from "../../functions/registerUser";
-import { mainStylis } from "styled-components/dist/models/StyleSheetManager";
+// import { mainStylis } from "styled-components/dist/models/StyleSheetManager";
 import loginWithGoogle from "../../functions/loginWithGoogle";
 
 const Login = () => {
@@ -26,22 +26,19 @@ const Login = () => {
   type Inputs = {
     email: string;
     password: string;
-    userName?: string;
+    userName?: string | null;
     name?: string;
     userEmail?: string;
   };
 
-  const {
-    register,
-    handleSubmit,
-    // formState: { errors },
-  } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<Inputs>();
   const { setUser } = useUserStore();
   const { setEmail } = useUserStore();
 
   const onSubmit: SubmitHandler<Inputs> = (data, event) => {
     event?.preventDefault();
-    const userName = data.name;
+
+    let userName = data.name;
     const email = data.email;
     const password = data.password;
     // console.log("voila", email, password);
@@ -49,6 +46,7 @@ const Login = () => {
     if (!isUser) {
       console.log("entro a registrar usuario");
       console.log(data);
+      userName = "Invitado";
       setUser(userName);
       setEmail(email);
       registerUser({ email }, { password });
@@ -92,9 +90,8 @@ const Login = () => {
                   <GoogleButton onClick={loginWithGoogle}>
                     <GoogleIcon src="/utils/GoogleLogo.svg" /> Acceder con
                     Google
-                  </GoogleButton>           
+                  </GoogleButton>
                 </>
-
               )}
             </FormElement>
           </LeftContainer>
@@ -109,7 +106,8 @@ const Login = () => {
               </>
             ) : (
               <Paragraph>
-                ¿Ya tienes cuenta? <Link onClick={toogleIsUser}>Volver al Login</Link>
+                ¿Ya tienes cuenta?{" "}
+                <Link onClick={toogleIsUser}>Volver al Login</Link>
               </Paragraph>
             )}
           </RightContainer>
@@ -118,6 +116,8 @@ const Login = () => {
     </MainWrapper>
   );
 };
+
+//#region Styles
 const Title = styled(BaseTitle)`
   color: #262522;
   margin-bottom: 50px;
@@ -126,7 +126,7 @@ const Title = styled(BaseTitle)`
 
 const FormElement = styled.form`
   width: 100%;
-`
+`;
 
 const Input = styled.input`
   color: #50504d;
@@ -145,7 +145,7 @@ const Button = styled(BaseButton)`
   background: #87c159;
   color: #fafafa;
   width: 100%;
-  transition: .5s all ease-in-out;
+  transition: 0.5s all ease-in-out;
   &:hover {
     scale: 1.2;
   }
@@ -159,7 +159,7 @@ const Link = styled(BaseLink)`
   font-weight: 600;
   line-height: normal;
   text-decoration-line: underline;
-  transition: .5s all ease-in-out;
+  transition: 0.5s all ease-in-out;
   &:hover {
     scale: 1.3;
   }
@@ -203,7 +203,7 @@ const GoogleButton = styled.button`
   align-items: center;
   gap: 10px;
 
-  transition: .5s all ease-in-out;
+  transition: 0.5s all ease-in-out;
   &:hover {
     scale: 1.3;
   }
@@ -229,5 +229,5 @@ const RightContainer = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
+//#endregion
 export default Login;

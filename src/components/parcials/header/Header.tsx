@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import HeartIcon from '../../common/icons/HeartIcon';
-import useFavorites from '../../../hooks/useFavorites';
+import HeartIcon from "../../common/icons/HeartIcon";
+import useFavorites from "../../../hooks/useFavorites";
 import logOut from "../../../functions/logOut";
 import {
   ResponsiveContainer,
@@ -15,19 +15,16 @@ import {
   MarginSection,
   SubscribeButton,
   NumberFavorites,
-} from './styles'
-import {useUserStore} from '../../../store/userState'
+} from "./styles";
+import { useUserStore } from "../../../store/userState";
 export const Header = () => {
-
-  const uid= useUserStore((state) => state.user?.uid);
-  const {numberFavorites} = useFavorites();
+  const mail: string | null = useUserStore((state) => state.uid);
+  const { numberFavorites } = useFavorites();
   const reset = useUserStore((state) => state.reset);
-const handleLogOut = () => {
-  logOut();
-  reset();
-
-
-}
+  const handleLogOut = () => {
+    logOut();
+    reset();
+  };
   return (
     <ResponsiveContainer>
       <HeaderContainer>
@@ -53,22 +50,22 @@ const handleLogOut = () => {
           </MarginSection>
         </CenterSection>
         <RightSection>
-        <Link to="/favorites">
+            
+            
+        {mail != null ?  
+          <Link to="/favorites">
           <Icon>
-            <NumberFavorites>
-              {numberFavorites}
-            </NumberFavorites>
-            <HeartIcon
-                fill="#058240"
-                height="30px"
-                width="30px"
-            />
-          </Icon>
-        </Link>    
-          <SubscribeButton><Link to="/login">INICIAR SESION</Link></SubscribeButton>
+              <NumberFavorites>{numberFavorites}</NumberFavorites>
+              <HeartIcon fill="#058240" height="30px" width="30px" />
+            </Icon>
+          </Link>
+ : null}
+
+          <SubscribeButton>
+            <Link to="/login">INICIAR SESION</Link>
+          </SubscribeButton>
         </RightSection>
-        <button onClick={handleLogOut}>Log out</button>
-        <p>{uid}</p>
+        {mail != null ? <button onClick={handleLogOut}>Log out</button> : null}
       </HeaderContainer>
     </ResponsiveContainer>
   );
