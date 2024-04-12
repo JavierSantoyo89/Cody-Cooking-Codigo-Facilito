@@ -144,7 +144,7 @@ const categories = [
   }
 ];
 
-export default function Carousel(props: Props) {
+export default function Carousel(_props: Props) {
   const firstWord = (desc: string) => desc.split(' ')[0];
 
   return (

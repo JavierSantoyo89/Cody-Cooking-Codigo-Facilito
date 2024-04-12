@@ -32,7 +32,7 @@ const Login = () => {
   };
 
   const { register, handleSubmit } = useForm<Inputs>();
-  const { setUser } = useUserStore();
+  const { setUserName } = useUserStore();
   const { setEmail } = useUserStore();
 
   const onSubmit: SubmitHandler<Inputs> = (data, event) => {
@@ -47,7 +47,7 @@ const Login = () => {
       console.log("entro a registrar usuario");
       console.log(data);
       userName = "Invitado";
-      setUser(userName);
+      setUserName(userName);
       setEmail(email);
       registerUser({ email }, { password });
     } else {

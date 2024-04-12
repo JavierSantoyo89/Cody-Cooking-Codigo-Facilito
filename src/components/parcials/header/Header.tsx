@@ -18,7 +18,7 @@ import {
 } from "./styles";
 import { useUserStore } from "../../../store/userState";
 export const Header = () => {
-  const mail: string | null = useUserStore((state) => state.uid);
+  const uid: string | null = useUserStore((state) => state.uid);
   const { numberFavorites } = useFavorites();
   const reset = useUserStore((state) => state.reset);
   const handleLogOut = () => {
@@ -52,7 +52,7 @@ export const Header = () => {
         <RightSection>
             
             
-        {mail != null ?  
+        {uid !== null ?  
           <Link to="/favorites">
           <Icon>
               <NumberFavorites>{numberFavorites}</NumberFavorites>
@@ -65,7 +65,7 @@ export const Header = () => {
             <Link to="/login">INICIAR SESION</Link>
           </SubscribeButton>
         </RightSection>
-        {mail != null ? <button onClick={handleLogOut}>Log out</button> : null}
+        {uid !== null ? <button onClick={handleLogOut}>Log out</button> : null}
       </HeaderContainer>
     </ResponsiveContainer>
   );

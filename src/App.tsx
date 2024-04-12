@@ -6,7 +6,9 @@ import Routes from "./routes/routes";
 import { useUserStore } from "./store/userState";
 
 export default function App() {
-  const { setUser, setEmail, setPhotoURL, setUid } = useUserStore();
+  const { setUser, setUserName, setEmail, setPhotoURL,setUid } = useUserStore();
+
+
   useEffect(() => {
   const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
     if (firebaseUser) {
@@ -16,17 +18,18 @@ export default function App() {
         firebaseUser.photoURL !== undefined &&
         firebaseUser.uid !== undefined
       ) {
-        setUser(firebaseUser.displayName), 
-          setEmail(firebaseUser.email), 
-          setPhotoURL(firebaseUser.photoURL), 
-          setUid(firebaseUser.uid);
+        setUser(firebaseUser)
+        setUid (firebaseUser.uid)
+        setEmail(firebaseUser.email)
+        setUserName(firebaseUser.displayName)
+        setPhotoURL(firebaseUser.photoURL)
       } else {
         console.error('Error: firebaseUser no tiene las propiedades necesarias.');
       }
-      console.log(firebaseUser.displayName);
-      console.log(firebaseUser.email);
-      console.log(firebaseUser.photoURL);
-      console.log(firebaseUser.uid);
+      // console.log(firebaseUser.displayName);
+      // console.log(firebaseUser.email);
+      // console.log(firebaseUser.photoURL);
+      // console.log(firebaseUser.uid);
     } else {
       setUser(null); 
     }
