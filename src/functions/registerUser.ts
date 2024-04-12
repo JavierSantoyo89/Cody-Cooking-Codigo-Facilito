@@ -8,7 +8,8 @@ export default async function registerUser(
 ) {
   try {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const user = await createUserWithEmailAndPassword(auth, email, password);
+    // const user = 
+    await createUserWithEmailAndPassword(auth, email, password);
     console.log("Usuario creado:");
     // console.log("El email es: " + user.user.email);
     // console.log("el UUID es: " + user.user.uid);
