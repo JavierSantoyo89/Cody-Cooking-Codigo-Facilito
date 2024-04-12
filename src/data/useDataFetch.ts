@@ -12,9 +12,9 @@ const useDataFetch = async () => {
     setIsLoading(false);
     setIsData(data);
   } catch (error) {
-    console.log(error);
+    console.log("Error de fechin:", error);
   } finally {
-    console.log("finalizo el fetch");
+    // console.log("finalizo el fetch");
   }
   }
   return { isLoading, data, getFetch };

@@ -7,10 +7,12 @@ export default async function registerUser(
   { password }: { password: string }
 ) {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const user = await createUserWithEmailAndPassword(auth, email, password);
-    console.log("El email es: " + user.user.email);
-    console.log("el UUID es: " + user.user.uid);
+    console.log("Usuario creado:");
+    // console.log("El email es: " + user.user.email);
+    // console.log("el UUID es: " + user.user.uid);
   } catch (error) {
-    console.log(error);
+    console.log("Error al cargar email y password: ",error);
   }
 }

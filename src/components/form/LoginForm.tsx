@@ -45,14 +45,14 @@ const Login = () => {
     // console.log("voila", email, password);
 
     if (!isUser) {
-      console.log("entro a registrar usuario");
-      console.log(data);
+      // console.log("entro a registrar usuario");
+      // console.log(data);
       userName = "Invitado";
       setUserName(userName);
       setEmail(email);
       registerUser({ email }, { password });
     } else {
-      console.log("entro a login");
+      // console.log("entro a login");
       loginWithEmailPassword({ email }, { password });
     }
   };
