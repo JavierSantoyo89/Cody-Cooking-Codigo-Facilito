@@ -1,8 +1,9 @@
 import {create} from "zustand";
+import type { User } from "firebase/auth";
 
 interface UserState {
-user: string | null;
-setUser: (user: string | null) => void;
+user: User | null;
+setUser: (user: User | null) => void;
 email: string | null;
 setEmail: (email: string | null) => void;
 photoURL: string | null;

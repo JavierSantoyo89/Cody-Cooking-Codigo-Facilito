@@ -1,67 +1,37 @@
 import styled from "styled-components";
-import RecipeCard from "../../../../components/RecipeCard";
-import trcipeImg from "../../../../assets/imgs/trcipe-img.jpg";
+
+import { baseUrl } from '../../../../constants'
+import RecipesList from '../../../../components/RecipesList';
 import { GridContainer } from "../../../../components/common/ui";
+import { useGetRecipesService } from '../../../../hooks/useGetRecipes';
+import { Subtitle as BaseSubtitle } from '../../../../components/common/titles';
 
-const recipes = [
-    {
-        image: trcipeImg,
-        title: 'Savory Herb-Infused Chicken', 
-        description: 'Indulge in the rich and savory symphony of flavors with our Savory Herb-Infused Chicken',
-    },
-    {
-        image: trcipeImg,
-        title: 'Savory Herb-Infused Chicken', 
-        description: 'Indulge in the rich and savory symphony of flavors with our Savory Herb-Infused Chicken',
-    },
-    {
-        image: trcipeImg,
-        title: 'Savory Herb-Infused Chicken', 
-        description: 'Indulge in the rich and savory symphony of flavors with our Savory Herb-Infused Chicken',
-    },
-    {
-        image: trcipeImg,
-        title: 'Savory Herb-Infused Chicken', 
-        description: 'Indulge in the rich and savory symphony of flavors with our Savory Herb-Infused Chicken',
-    },
-    {
-        image: trcipeImg,
-        title: 'Savory Herb-Infused Chicken', 
-        description: 'Indulge in the rich and savory symphony of flavors with our Savory Herb-Infused Chicken',
-    },
-    {
-        image: trcipeImg,
-        title: 'Savory Herb-Infused Chicken', 
-        description: 'Indulge in the rich and savory symphony of flavors with our Savory Herb-Infused Chicken',
-    }
-]
 
-const PopularRecipes = () => {
-    return(
-        <RecipesSectionContainer>
-            <SubTitle>Recetas Populares</SubTitle>
-            <GridContainer>
-                {recipes.map(({ image, title, description }) => (
-                    <RecipeCard 
-                        image={image}
-                        title={title}
-                        description={description}
-                    />
-                ))}
-            </GridContainer>
-
-        </RecipesSectionContainer>
-    )
-}
-const SubTitle = styled.h2`
-    color: #262522;
-    font-size: 2rem;
+const Subtitle = styled(BaseSubtitle)`
+    color: #666666;
+    margin-bottom: 20px;
     text-align: center;
-
-`
+`;
 
 const RecipesSectionContainer = styled.section`
     width: 100%;
-`
+`;
+
+const PopularRecipes = () => {
+    const { recipes } = useGetRecipesService(`${baseUrl}search.php?f=d`);
+
+    return(
+        <RecipesSectionContainer>
+            <Subtitle>Recetas Populares</Subtitle>
+            {recipes.length > 0 && (
+                    <GridContainer>
+                        <RecipesList recipes={recipes} />
+                    </GridContainer>
+                )   
+            }
+
+        </RecipesSectionContainer>
+    )
+};
 
 export default PopularRecipes;

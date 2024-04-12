@@ -9,6 +9,7 @@ export const Home = () => {
   }, []);
   return (
     <div>
+
       {isLoading === true ? <Loading /> : null}
       <Main/>
     </div>
