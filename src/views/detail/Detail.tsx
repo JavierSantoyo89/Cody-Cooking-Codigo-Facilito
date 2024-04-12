@@ -8,7 +8,7 @@ import RecipesList from '../../components/RecipesList';
 import { CardContainer } from '../../components/RecipeCard';
 import MainWrapper from "../../components/common/MainWrapper";
 import { Title as BaseTitle } from "../../components/common/titles";
-import { GridDetailContainer } from "../../components/common/ui";
+// import { GridDetailContainer } from "../../components/common/ui";
 
 const recipesHardCode = [
     {
