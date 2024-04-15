@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
 import MainWrapper from "../common/MainWrapper";
 import { Title as BaseTitle } from "../common/titles";
@@ -16,9 +17,12 @@ import registerUser from "../../functions/registerUser";
 // import { mainStylis } from "styled-components/dist/models/StyleSheetManager";
 import loginWithGoogle from "../../functions/loginWithGoogle";
 import cody from "../../assets/imgs/Cody.svg";
-import googleLogo from '../../assets/icons/GoogleLogo.svg'
+import googleLogo from '../../assets/icons/GoogleLogo.svg';
+
 const Login = () => {
+  const navigate = useNavigate();
   const [isUser, setIsUser] = useState(true);
+  const [failedLogin, setFailedLogin] = useState(false);
 
   const toogleIsUser = () => {
     setIsUser((currentValue: boolean) => !currentValue);
@@ -35,8 +39,9 @@ const Login = () => {
   const { register, handleSubmit } = useForm<Inputs>();
   const { setUserName } = useUserStore();
   const { setEmail } = useUserStore();
+  const isLogged = useUserStore(state => state.isLogged);
 
-  const onSubmit: SubmitHandler<Inputs> = (data, event) => {
+  const onSubmit: SubmitHandler<Inputs> = async (data, event) => {
     event?.preventDefault();
 
     let userName = data.name;
@@ -53,9 +58,17 @@ const Login = () => {
       registerUser({ email }, { password });
     } else {
       // console.log("entro a login");
-      loginWithEmailPassword({ email }, { password });
+      const userLoggedSuccessfully = await loginWithEmailPassword({ email }, { password });
+      setFailedLogin(!userLoggedSuccessfully)
     }
+
+
   };
+
+  useEffect(() => {
+    if (isLogged) navigate(`/`);
+  }, [navigate, isLogged])
+
   return (
     <MainWrapper>
       <div>
@@ -84,6 +97,7 @@ const Login = () => {
                 {...register("password", { required: true })}
               />
               <Clear />
+              {failedLogin && <ErrorMessage>Error al cargar email o password</ErrorMessage>}
               <Button>{isUser ? "Login" : "Crear cuenta"}</Button>
               {isUser && (
                 <>
@@ -230,5 +244,13 @@ const RightContainer = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+
+const ErrorMessage = styled(BaseParagraph)`
+  color: red;
+  margin-bottom: 20px;
+`;
+
+
 //#endregion
 export default Login;

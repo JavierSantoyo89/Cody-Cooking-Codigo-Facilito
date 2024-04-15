@@ -8,7 +8,6 @@ import { Paragraph, Button } from '../common/ui'
 
 import type { Recipe } from '../../types/recipes';
 
-
 export const CardContainer = styled.div`
     width: 100%;
 `;
