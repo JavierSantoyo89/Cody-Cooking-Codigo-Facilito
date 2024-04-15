@@ -155,7 +155,7 @@ export default function Carousel(_props: Props) {
           {categories
             .filter((_, index) => index < 5)
             .map((cat) => (
-              <CarouselItem bg={cat.strCategoryThumb}>
+              <CarouselItem bg={cat.strCategoryThumb} key={cat.idCategory}>
                 <TitleContainer>
                   <Title>{firstWord(cat.strCategoryDescription)}</Title>
                   <ViewMoreButton>VER MÁS</ViewMoreButton>
