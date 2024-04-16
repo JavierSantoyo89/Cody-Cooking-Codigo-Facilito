@@ -14,6 +14,8 @@ interface UserState {
   setPhotoURL: (photoURL: string | null) => void;
   uid: string | null;
   setUid: (uid: string | null) => void;
+  afterLogin: boolean
+  setAfterLogin: (afterLogin: boolean) => void
   reset: () => void;
   displayName?: string | null;
 }
@@ -31,11 +33,14 @@ export const useUserStore = create<UserState>((set) => ({
   setPhotoURL: (photoURL) => set({ photoURL }),
   uid: null,
   setUid: (uid) => set({ uid }),
+  afterLogin: true,
+  setAfterLogin: (afterLogin) => set({ afterLogin }),
   reset: () => set({ 
     isLogged: false,
     user: null, 
     email: null, 
     photoURL: null, 
-    uid: null 
+    uid: null, 
+    afterLogin: true
   }),
 }));

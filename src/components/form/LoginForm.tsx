@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import MainWrapper from "../common/MainWrapper";
 import { Title as BaseTitle } from "../common/titles";
@@ -15,9 +15,11 @@ import { useUserStore } from "../../store/userState";
 import loginWithEmailPassword from "../../functions/loginWithEmailPassword";
 import registerUser from "../../functions/registerUser";
 // import { mainStylis } from "styled-components/dist/models/StyleSheetManager";
-import loginWithGoogle from "../../functions/loginWithGoogle";
+import { loginWithGoogle } from "../../functions/loginWithGoogle";
 import cody from "../../assets/imgs/Cody.svg";
-import googleLogo from '../../assets/icons/GoogleLogo.svg';
+import googleLogo from "../../assets/icons/GoogleLogo.svg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -36,10 +38,14 @@ const Login = () => {
     userEmail?: string;
   };
 
-  const { register, handleSubmit } = useForm<Inputs>();
-  const { setUserName } = useUserStore();
-  const { setEmail } = useUserStore();
-  const isLogged = useUserStore(state => state.isLogged);
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<Inputs>();
+  const { setUserName, setEmail,setAfterLogin } = useUserStore();
+  // const { setEmail } = useUserStore();
+  const isLogged = useUserStore((state) => state.isLogged);
 
   const onSubmit: SubmitHandler<Inputs> = async (data, event) => {
     event?.preventDefault();
@@ -55,19 +61,67 @@ const Login = () => {
       userName = "Invitado";
       setUserName(userName);
       setEmail(email);
-      registerUser({ email }, { password });
+      const registeredUser = await registerUser({ email }, { password });
+      {
+        registeredUser == false ? notifyCredentials() : null;
+      }
+      setAfterLogin(true);
     } else {
       // console.log("entro a login");
-      const userLoggedSuccessfully = await loginWithEmailPassword({ email }, { password });
-      setFailedLogin(!userLoggedSuccessfully)
+      const userLoggedSuccessfully = await loginWithEmailPassword(
+        { email },
+        { password }
+      );
+      setFailedLogin(!userLoggedSuccessfully);
+      {
+        userLoggedSuccessfully == false ? notifyCredentials() : null;
+      }
+      setAfterLogin(true);
     }
-
-
   };
 
   useEffect(() => {
+    {
+      errors.email ? notifyMail() : null;
+    }
+    {
+      errors.password ? notifypassword() : null;
+    }
+    {
+      errors.name ? notifyname() : null;
+    }
+  }, [errors.name, errors.email, errors.password]);
+
+  function notifyMail() {
+    toast.info(
+      `.... Ingresa un correo valido .... \n Debe tener Mínimo 5 caracteres \n example@codycooking.com`,
+      { icon: () => <img src={cody} height={42} alt="cody" /> }
+    );
+  }
+  function notifypassword() {
+    toast.info(
+      `....... Revisa tu password ....... \n Debe tener Mínimo 5 caracteres `,
+      { icon: () => <img src={cody} height={40} alt="cody" /> }
+    );
+  }
+  function notifyname() {
+    toast.info(
+      `Ingresa tu nombre de usuario \n Debe tener Mínimo 5 caracteres \n`,
+      { icon: () => <img src={cody} height={40} alt="cody" /> }
+    );
+  }
+
+  function notifyCredentials() {
+    toast.info("Usuario y/o contraseña erroneos", {
+      icon: () => <img src={cody} height={40} alt="cody" />,
+    });
+  }
+
+  useEffect(() => {
     if (isLogged) navigate(`/`);
-  }, [navigate, isLogged])
+  }, [navigate, isLogged]);
+
+
 
   return (
     <MainWrapper>
@@ -81,14 +135,14 @@ const Login = () => {
                 <Input
                   id="name"
                   placeholder="Nombre"
-                  {...register("name", { required: true })}
+                  {...register("name", { required: true, minLength: 5 })}
                 />
               )}
               <Input
                 type="email"
                 id="email"
                 placeholder="Email"
-                {...register("email", { required: true })}
+                {...register("email", { required: true, minLength: 5 })}
               />
               <Input
                 type="password"
@@ -97,14 +151,15 @@ const Login = () => {
                 {...register("password", { required: true })}
               />
               <Clear />
-              {failedLogin && <ErrorMessage>Error al cargar email o password</ErrorMessage>}
+              {failedLogin && (
+                <ErrorMessage>Error al cargar email o password</ErrorMessage>
+              )}
               <Button>{isUser ? "Login" : "Crear cuenta"}</Button>
               {isUser && (
                 <>
                   <ParagraphLeft>-O bien-</ParagraphLeft>
                   <GoogleButton onClick={loginWithGoogle}>
-                    <GoogleIcon src={googleLogo} /> Acceder con
-                    Google
+                    <GoogleIcon src={googleLogo} /> Acceder con Google
                   </GoogleButton>
                 </>
               )}
@@ -128,6 +183,18 @@ const Login = () => {
           </RightContainer>
         </GridDetailContainer>
       </div>
+      <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
     </MainWrapper>
   );
 };
@@ -245,12 +312,10 @@ const RightContainer = styled.div`
   align-items: center;
 `;
 
-
 const ErrorMessage = styled(BaseParagraph)`
   color: red;
   margin-bottom: 20px;
 `;
-
 
 //#endregion
 export default Login;
