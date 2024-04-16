@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import HeartIcon from "../../common/icons/HeartIcon";
 import useFavorites from "../../../hooks/useFavorites";
 import logOut from "../../../functions/logOut";
+
 import {
   ResponsiveContainer,
   HeaderContainer,
@@ -16,16 +17,25 @@ import {
   SubscribeButton,
   NumberFavorites,
 } from "./styles";
-import cody from "../../../assets/imgs/cody-image.jpg"
+import cody from "../../../assets/imgs/cody-image.jpg";
 import { useUserStore } from "../../../store/userState";
 export const Header = () => {
-  const uid: string | null = useUserStore((state) => state.uid);
+  // const uid: string | null = useUserStore((state) => state.uid);
   const { numberFavorites } = useFavorites();
+ 
   const reset = useUserStore((state) => state.reset);
+  const isLogged = useUserStore((state) => state.isLogged);
+
+  
+
   const handleLogOut = () => {
     logOut();
     reset();
   };
+
+
+  
+  
   return (
     <ResponsiveContainer>
       <HeaderContainer>
@@ -51,22 +61,24 @@ export const Header = () => {
           </MarginSection>
         </CenterSection>
         <RightSection>
-            
-            
-        {uid !== null ?  
-          <Link to="/favorites">
-          <Icon>
-              <NumberFavorites>{numberFavorites}</NumberFavorites>
-              <HeartIcon fill="#058240" height="30px" width="30px" />
-            </Icon>
-          </Link>
- : null}
-
-          <SubscribeButton>
-            <Link to="/login">INICIAR SESION</Link>
-          </SubscribeButton>
-        </RightSection>
-        {uid !== null ? <button onClick={handleLogOut}>Log out</button> : null}
+          {isLogged ? (
+            <>
+              <Link to="/favorites">
+                <Icon>
+                  <NumberFavorites>{numberFavorites}</NumberFavorites>
+                  <HeartIcon fill="#058240" height="30px" width="30px" />
+                </Icon>
+              </Link>
+              <button onClick={handleLogOut}>Log out</button>
+            </>
+          ) : (
+            <>
+              <SubscribeButton>
+                <Link to="/login">INICIAR SESION</Link>
+              </SubscribeButton>
+            </>
+          )}
+        </RightSection> 
       </HeaderContainer>
     </ResponsiveContainer>
   );

@@ -1,12 +1,16 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+
 import { auth } from "../firebase/credentials";
 import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 
-export default async function loginWithGoogle() {
+export async function loginWithGoogle(): Promise<boolean> {
   try {
     const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider);
+    await signInWithRedirect(auth, provider);
+    return true;
     // console.log("Login exitoso");
   } catch (error) {
-    console.log("Error al cargar con Google: ",error);
+    return false;
+    // console.log("Error al cargar con Google: ",error);
   }
 }
