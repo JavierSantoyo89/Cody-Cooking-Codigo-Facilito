@@ -29,7 +29,7 @@ export const Home = () => {
   }, []);
 
   function notifyCredentials() {
-    toast.info("Hola, busca la comida favoritas", {
+    toast.info("Bienvenido a Cody Cooking", {
       icon: () => <img src={cody} height={40} alt="cody" />,
     });
   }

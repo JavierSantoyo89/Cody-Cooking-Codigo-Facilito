@@ -19,7 +19,7 @@ const CarouselContainer = styled.div`
 `;
 
 const Title = styled(BaseTitle)`
-  background: rgba(128, 193, 96, 0.5);
+  background: #80c1607f;
   color: #f3c301;
   font-size: 48px;
   margin-bottom: 10px;
@@ -55,6 +55,7 @@ const CarouselItem = styled.div<{bg: string}>`
   position: relative;
   text-align: center;
   width: 100%;
+  mask-image: linear-gradient(180deg, rgb(43, 43, 43) 0%, rgba(43, 43, 43, 0.788));
 `;
 
 const categories = [

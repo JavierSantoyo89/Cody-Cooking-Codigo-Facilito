@@ -4,14 +4,15 @@ export const Loading = () => {
   return (
     
     <div className={Style.loader}>
-  <div className={Style.panWrapper}>
-    <div className={Style.pan}>
-      <div className={Style.food}></div>
-      <div className={Style.panBase}></div>
-      <div className={Style.panHandle}></div>
+      <div className={Style.panWrapper}>
+        <div className={Style.pan}>
+          <p>Cargando...</p>
+          <div className={Style.food}></div>
+          <div className={Style.panBase}></div>
+          <div className={Style.panHandle}></div>
+        </div>
+        <div className={Style.panShadow}></div>
+      </div>
     </div>
-    <div className={Style.panShadow}></div>
-  </div>
-</div>
   )
 }
