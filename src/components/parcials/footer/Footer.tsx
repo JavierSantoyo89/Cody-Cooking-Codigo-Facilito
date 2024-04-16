@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
-
+import cody from "../../../assets/imgs/cody-image.jpg";
 import { ResponsiveContainer } from "../../common/layout"
 
 export const Footer = () => {
@@ -8,13 +8,13 @@ export const Footer = () => {
     <ResponsiveContainer>
       <FooterContainer>
         <LeftSection>
-          <Logo src="src/assets/imgs/cody-image.jpg" alt="Logo" />
+          <Logo src={cody} alt="Logo" />
           <TextContainer>
             <Text>Cody</Text>
             <Text>Cooking</Text>
           </TextContainer>
         </LeftSection>
-        <CenterSection>Copyright 2024 Cody Cooking</CenterSection>
+        <CenterSection>Copyright: © 2024 CODY COOKING.</CenterSection>
         <RightSection>
           <Icon href="https://www.facebook.com">
             <FaFacebook />

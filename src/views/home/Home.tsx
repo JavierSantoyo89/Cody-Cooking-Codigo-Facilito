@@ -1,29 +1,55 @@
 import { useEffect, useState } from "react";
-import { Loading } from "../../components/loadin/Loading";
+import { Loading } from "../../components/loading/Loading";
 import Main from "./mainContent/Main";
 import { useUserStore } from "../../store/userState";
-// import { useDataUsers, useUserNameStore } from "../../store/Users";
-// import {useDataFetch,isLoading, data} from "../../data/useDataFetch";
+import { ToastContainer, toast } from "react-toastify";
+import cody from "../../assets/imgs/Cody.svg";
 export const Home = () => {
-  // const name = useUserNameStore((state) => state.userName);
-  const name = useUserStore((state) => state.user?.displayName);
-  const email = useUserStore((state) => state.user?.email);
-  const imgPerfil = useUserStore((state) => state.user?.photoURL);
-  const uid= useUserStore((state) => state.user?.uid);
   const [isLoading, setIsLoading] = useState(true);
-  // useDataFetch()
+  const {setAfterLogin, afterLogin} = useUserStore();
+  // const isLogged = useUserStore((state) => state.isLogged);
+ 
+  console.log("El estar logeado es: ",afterLogin);
+  
   useEffect(() => {
     // console.log(isLoading);
+
+
+
+    if(afterLogin){
+      notifyCredentials();
+      setAfterLogin(false);
+      console.log("despues de validar", afterLogin);
+      
+    } 
+
+
+
     isLoading ? setIsLoading(false) : null;
   }, []);
+
+  function notifyCredentials() {
+    toast.info("Hola, busca la comida favoritas", {
+      icon: () => <img src={cody} height={40} alt="cody" />,
+    });
+  }
   return (
     <div>
-      <h1>{name}</h1>
-      <p>{email}</p>
-      <img src ={imgPerfil} key={uid}/>
-      <p>{uid}</p>
+
       {isLoading === true ? <Loading /> : null}
       <Main/>
+      <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
     </div>
   );
 };

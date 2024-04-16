@@ -5,8 +5,8 @@ import { signOut } from "firebase/auth";
 export default async function logOut() {
   try {
     const user = await signOut(auth);
-    console.log(user);
+    console.log("Usuario desconectado: ", user); 
   } catch (error) {
-    console.log(error);
+    console.log("Error al desconectarse: ",error);
   }
 }
