@@ -1,13 +1,14 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Home } from "../views/home/Home";
-import  Error404  from "../components/Error404";
-import Login from "../views/login/Login";
-import { Perfil } from "../views/perfil/Perfil";
+import PrivateRoute from "./PrivateRoute";
 import { Layout } from "../components/parcials/layout/Layout";
+import { Home } from "../views/home/Home";
+import Login from "../views/login/Login";
 import Favorites from "../views/favorites";
 import Recipes from "../views/recipes";
 import Detail from "../views/detail/Detail";
-import PrivateRoute from "./PrivateRoute";
+import { About } from "../views/about/About";
+import Apidocs from "../views/apidocs/Apidocs";
+import Error404 from "../components/Error404";
 
 const router = createBrowserRouter([
   {
@@ -23,14 +24,18 @@ const router = createBrowserRouter([
         element: <Detail />,
       },
       {
-        path: "/perfil",
-        element: <Perfil />,
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/apidocs",
+        element: <Apidocs />,
       },
       {
         path: "/login",
         element: <Login />,
       },
-      
+
       {
         path: "/recipes",
         element: <Recipes />,
