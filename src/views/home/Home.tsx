@@ -4,6 +4,7 @@ import Main from "./mainContent/Main";
 import { useUserStore } from "../../store/userState";
 import { ToastContainer, toast } from "react-toastify";
 import cody from "../../assets/imgs/Cody.svg";
+
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { setAfterLogin, afterLogin } = useUserStore();
@@ -25,6 +26,11 @@ export const Home = () => {
   return (
     <div>
       {isLoading === true ? <Loading /> : null}
+      {/* <PDFDownloadLink document={<Pdfdocs />} fileName="CodyCooking.pdf">Download
+      <Pdfdocs />
+      </PDFDownloadLink> */}
+  
+      
       <Main />
       <ToastContainer
         position="bottom-right"
