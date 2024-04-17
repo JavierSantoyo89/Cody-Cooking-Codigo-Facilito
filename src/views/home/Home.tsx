@@ -6,25 +6,13 @@ import { ToastContainer, toast } from "react-toastify";
 import cody from "../../assets/imgs/Cody.svg";
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const {setAfterLogin, afterLogin} = useUserStore();
-  // const isLogged = useUserStore((state) => state.isLogged);
- 
-  console.log("El estar logeado es: ",afterLogin);
-  
+  const { setAfterLogin, afterLogin } = useUserStore();
   useEffect(() => {
-    // console.log(isLoading);
-
-
-
-    if(afterLogin){
+    if (afterLogin) {
       notifyCredentials();
       setAfterLogin(false);
       console.log("despues de validar", afterLogin);
-      
-    } 
-
-
-
+    }
     isLoading ? setIsLoading(false) : null;
   }, []);
 
@@ -33,23 +21,23 @@ export const Home = () => {
       icon: () => <img src={cody} height={40} alt="cody" />,
     });
   }
+
   return (
     <div>
-
       {isLoading === true ? <Loading /> : null}
-      <Main/>
+      <Main />
       <ToastContainer
-          position="bottom-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-        />
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 };
