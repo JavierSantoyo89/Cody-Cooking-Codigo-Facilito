@@ -14,12 +14,19 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useUserStore } from "../../store/userState";
 import loginWithEmailPassword from "../../functions/loginWithEmailPassword";
 import registerUser from "../../functions/registerUser";
-// import { mainStylis } from "styled-components/dist/models/StyleSheetManager";
 import { loginWithGoogle } from "../../functions/loginWithGoogle";
 import cody from "../../assets/imgs/Cody.svg";
 import googleLogo from "../../assets/icons/GoogleLogo.svg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+type Inputs = {
+  email: string;
+  password: string;
+  userName?: string | null;
+  name?: string;
+  userEmail?: string;
+};
 
 const Login = () => {
   const navigate = useNavigate();
@@ -30,21 +37,13 @@ const Login = () => {
     setIsUser((currentValue: boolean) => !currentValue);
   };
 
-  type Inputs = {
-    email: string;
-    password: string;
-    userName?: string | null;
-    name?: string;
-    userEmail?: string;
-  };
-
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm<Inputs>();
-  const { setUserName, setEmail,setAfterLogin } = useUserStore();
-  // const { setEmail } = useUserStore();
+
+  const { setUserName, setEmail, setAfterLogin } = useUserStore();
   const isLogged = useUserStore((state) => state.isLogged);
 
   const onSubmit: SubmitHandler<Inputs> = async (data, event) => {
@@ -53,11 +52,8 @@ const Login = () => {
     let userName = data.name;
     const email = data.email;
     const password = data.password;
-    // console.log("voila", email, password);
 
     if (!isUser) {
-      // console.log("entro a registrar usuario");
-      // console.log(data);
       userName = "Invitado";
       setUserName(userName);
       setEmail(email);
@@ -67,7 +63,6 @@ const Login = () => {
       }
       setAfterLogin(true);
     } else {
-      // console.log("entro a login");
       const userLoggedSuccessfully = await loginWithEmailPassword(
         { email },
         { password }
@@ -121,8 +116,6 @@ const Login = () => {
     if (isLogged) navigate(`/`);
   }, [navigate, isLogged]);
 
-
-
   return (
     <MainWrapper>
       <div>
@@ -141,7 +134,7 @@ const Login = () => {
               <Input
                 type="email"
                 id="email"
-                placeholder="Email"
+                placeholder="Correo electrónico"
                 {...register("email", { required: true, minLength: 5 })}
               />
               <Input
@@ -150,14 +143,19 @@ const Login = () => {
                 placeholder="Contraseña"
                 {...register("password", { required: true })}
               />
+
               <Clear />
               {failedLogin && (
                 <ErrorMessage>Error al cargar email o password</ErrorMessage>
               )}
-              <Button>{isUser ? "Login" : "Crear cuenta"}</Button>
+              <Button>{isUser ? "Iniciar sesión" : "Crear cuenta"}</Button>
               {isUser && (
                 <>
-                  <ParagraphLeft>-O bien-</ParagraphLeft>
+                  <SeparatorContainer>
+                    <SeparatorLine />
+                    <SeparatorText>o</SeparatorText>
+                    <SeparatorLine />
+                  </SeparatorContainer>
                   <GoogleButton onClick={loginWithGoogle}>
                     <GoogleIcon src={googleLogo} /> Acceder con Google
                   </GoogleButton>
@@ -184,24 +182,24 @@ const Login = () => {
         </GridDetailContainer>
       </div>
       <ToastContainer
-          position="bottom-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-        />
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </MainWrapper>
   );
 };
 
 //#region Styles
 const Title = styled(BaseTitle)`
-  color: #262522;
+  color: #058240;
   margin-bottom: 50px;
   text-align: center;
 `;
@@ -213,23 +211,30 @@ const FormElement = styled.form`
 const Input = styled.input`
   color: #50504d;
   background: transparent;
-  /* min-width: 300px; */
   width: 100%;
-  height: 50px;
-  border-radius: 57px;
+  height: 42px;
+  border-radius: 30px;
   border: 1px solid #50504d;
   display: block;
-  padding: 10px;
+  padding: 0.75rem 1rem;
   margin-bottom: 40px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+
+  &:focus {
+    box-shadow: 0 0 0 5px rgba(63, 81, 181, 0.1);
+  }
 `;
 
 const Button = styled(BaseButton)`
   background: #87c159;
   color: #fafafa;
   width: 100%;
+  height: 42px;
+  font-size: 1em;
   transition: 0.5s all ease-in-out;
   &:hover {
-    scale: 1.2;
+    opacity: 0.8;
   }
 `;
 
@@ -258,36 +263,26 @@ const Paragraph = styled(BaseParagraph)`
   margin-bottom: 10px;
 `;
 
-const ParagraphLeft = styled.p`
-  color: #262522;
-  text-align: center;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  margin-bottom: 10px;
-`;
-
 const GoogleButton = styled.button`
   display: block;
   color: rgba(0, 0, 0, 0.54);
   background-color: #fafafa;
-  width: 55%;
+  width: 100%;
   font-family: "Roboto";
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.08),
     0px 2px 3px 0px rgba(0, 0, 0, 0.17);
-  border-radius: 10px;
-
+  border-radius: 30px;
+  border: 1px solid #ddd;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 
-  transition: 0.5s all ease-in-out;
+  transition: all 0.2s ease-in-out;
   &:hover {
-    scale: 1.3;
+    background-color: #eee;
   }
 `;
 
@@ -315,6 +310,23 @@ const RightContainer = styled.div`
 const ErrorMessage = styled(BaseParagraph)`
   color: red;
   margin-bottom: 20px;
+`;
+
+const SeparatorContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const SeparatorLine = styled.hr`
+  flex: 0 0 33.33%;
+  border: 1px solid #ddd;
+`;
+
+const SeparatorText = styled.p`
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
 `;
 
 //#endregion
