@@ -4,14 +4,14 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
     background: #fafafa;
-    border-radius: 100px;
+    border-radius: 30px;
     max-width: 960px;
     margin: 0 auto;
     padding: 50px;
     width: 100%;
 
     @media (max-width: 960px) {
-        border-radius: 50px;
+        border-radius: 15px;
         margin: 0 5%;
         padding: 20px;
         width: 90%;
