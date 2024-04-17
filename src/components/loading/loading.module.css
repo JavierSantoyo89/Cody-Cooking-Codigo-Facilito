@@ -1,3 +1,8 @@
+.paragraph {
+  color: #2b2b2b;
+  font-size: 90px
+}
+/* 
 .loader {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -206,4 +211,4 @@
       transform: scaleX(0.7);
     }
   }
-  
+   */

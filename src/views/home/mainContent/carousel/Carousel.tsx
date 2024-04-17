@@ -15,6 +15,16 @@ interface Props {
 const CarouselContainer = styled.div`
   .carousel .control-dots {
     bottom: 40px;
+
+    .selected {
+      background: #058240;
+      scale: 1.5;
+      width: 30px;
+      border-radius: 10px;
+    }
+  }
+  .carousel-slider .control-arrow:hover {
+    background: #05824080;
   }
 `;
 
@@ -55,7 +65,6 @@ const CarouselItem = styled.div<{bg: string}>`
   position: relative;
   text-align: center;
   width: 100%;
-  mask-image: linear-gradient(180deg, rgb(43, 43, 43) 0%, rgba(43, 43, 43, 0.788));
 `;
 
 const categories = [
@@ -151,7 +160,7 @@ export default function Carousel(_props: Props) {
   return (
     <CarouselContainer>
       <ResponsiveCarousel 
-          showArrows={true} 
+          showArrows={true}
         >
           {categories
             .filter((_, index) => index < 5)
