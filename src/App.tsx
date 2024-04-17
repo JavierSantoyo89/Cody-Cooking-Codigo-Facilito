@@ -18,9 +18,7 @@ export default function App() {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-      console.log({
-        firebaseUser
-      })
+      // console.log({firebaseUser})
       if (firebaseUser) {
         if (
           firebaseUser.displayName !== undefined &&
