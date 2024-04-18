@@ -8,8 +8,10 @@ import { Subtitle as BaseSubtitle } from '../../../../components/common/titles';
 
 
 const Subtitle = styled(BaseSubtitle)`
-    color: #666666;
+    color: #2b2b2b;
+    font-weight: bold;
     margin-bottom: 20px;
+    font-size: 2rem;
     text-align: center;
 `;
 

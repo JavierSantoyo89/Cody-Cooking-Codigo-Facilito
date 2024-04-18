@@ -11,8 +11,9 @@ const Button = styled.button`
 `;
 
 const Paragraph = styled.p`
-    color: black;
+    color: #2b2b2b;
     font-size: 16px;
+    font-weight: 300;
     margin: 0; 
 `;
     

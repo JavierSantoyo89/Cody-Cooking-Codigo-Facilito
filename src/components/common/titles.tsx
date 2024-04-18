@@ -17,7 +17,7 @@ const Subtitle = styled(Title).attrs({ as: 'h2' })`
 `;
 
 const CardTitle = styled.h3`
-    color: black;
+    color: #2b2b2b;
     font-size: 24px;
     line-height: initial;
     margin: 0;

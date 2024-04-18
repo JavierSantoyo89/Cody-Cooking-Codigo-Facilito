@@ -4,6 +4,7 @@ import Main from "./mainContent/Main";
 import { useUserStore } from "../../store/userState";
 import { ToastContainer, toast } from "react-toastify";
 import cody from "../../assets/imgs/Cody.svg";
+
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { setAfterLogin, afterLogin } = useUserStore();
@@ -41,3 +42,4 @@ export const Home = () => {
     </div>
   );
 };
+
