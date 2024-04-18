@@ -32,7 +32,6 @@ export const Footer = () => {
 };
 
 const FooterContainer = styled.footer`
-  color: #fff;
   padding-bottom: 30px;
   margin: 50px 0 20px;
   display: flex;
@@ -75,7 +74,7 @@ const RightSection = styled.div`
 `;
 
 const Icon = styled.a`
-  color: #fff;
+  color: #2b2b2b;
   font-size: 1.5rem;
   margin: 0 0.5rem;
 `;
