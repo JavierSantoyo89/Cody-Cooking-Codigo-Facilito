@@ -4,10 +4,28 @@
 ![GitHub License](https://img.shields.io/github/license/JavierSantoyo89/Cody-Cooking-Codigo-Facilito)
 
 Eres desarrollador? entra en [modo dev](./ReadmeDev.md)
+---
 
-El proyecto esta realiado vpn React + TypeScript + Vite + zustand
+<table>
+    <tbody>
+        <tr>
+            <td align="center">Cody cooking es un proyecto desarrollado pensando en buscar recetas fácilmente y tener tu propio “Recetario” para consultarla cuando lo requieras así seas novato o un chef, siempre tendrás a la mano tus recetas favoritas.
 
-<img src="./utils/CodyCooking.png" alt="image" width="50%" height="auto">
+<br>
+Cody cooking ayudando en la cocina…
+            </td>
+            <td rowspan=4 align="center"><img src="./utils/CodyCooking.png" alt="image" width="50%" height="auto">
+            </td>
+        </tr>
+<tr>
+<td align="center">
+<a href="https://codycooking.netlify.app/">Cody cooking</a>
+</td>
+</tr>
+</tbody>
+</table>
+
+## Desarrolladores
 
 <table>
     <tbody>
@@ -56,6 +74,20 @@ Tengo mucha curiosidad por el lado del Diseño UX/UI para poder crear interfaces
 <tr>
 <td align="center">
 <a href="https://www.linkedin.com/in/vanessa-macedo-huaman?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Linkedin</a>
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+    <tbody>
+        <tr>
+            <td rowspan=4 align="center"><img src="./utils/jose.jpg" alt="Jose" width="390px">Jose Montenegro Garzón</td>
+            <td align="center">Soy publicista y diseñador gráfico de profesión, pero frontend de corazón. Cuento con varios años de experiencia en el desarrollo de aplicaciones crossbrowsing, principalmente con React. Me apasiona mantenerme actualizado y siempre estoy dispuesto a ayudar y enseñar en todo lo que pueda.
+            </td>
+        </tr>
+<tr>
+<td align="center">
+<a href="https://www.linkedin.com/in/jose-montenegro-808b1b56/">Linkedin</a>
 </td>
 </tr>
 </tbody>
