@@ -20,10 +20,6 @@ export function useGetRecipesService(url: string): {
     fetchData();
   }, [url, get])
 
-  console.log({
-    rawData
-  })
-
   useEffect(() => {
     if (Array.isArray(rawData?.meals) && rawData.meals.length > 0) {
         setRecipes(recipesMap(rawData.meals))
