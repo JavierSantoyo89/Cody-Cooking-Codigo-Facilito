@@ -1,29 +1,29 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Button = styled.button`
-    background-color: #80c160;
-    color: #ffffff;
-    border: none;
-    border-radius: 20px;
-    padding: 10px 20px;
-    font-size: 14px;
-    cursor: pointer;
+  background-color: #80c160;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
 `;
 
 const Paragraph = styled.p`
-    color: black;
-    font-size: 16px;
-    margin: 0; 
+  color: black;
+  font-size: 16px;
+  margin: 0;
 `;
-    
+
 const Link = styled(Paragraph)`
-    color: blue;
-    cursor: pointer;
-    font-size: 16px;
+  color: blue;
+  cursor: pointer;
+  font-size: 16px;
 `;
 
 const Clear = styled.div`
-    clear: both;
+  clear: both;
 `;
 
 const GridContainer = styled.div`
@@ -51,11 +51,4 @@ const GridDetailContainer = styled.div`
     grid-gap: 10px 0;
   }
 `;
-export {
-    Button,
-    Link,
-    Paragraph,
-    Clear,
-    GridContainer,
-    GridDetailContainer
-}
+export { Button, Link, Paragraph, Clear, GridContainer, GridDetailContainer };

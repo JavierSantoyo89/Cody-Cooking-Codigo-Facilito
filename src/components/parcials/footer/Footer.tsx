@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import cody from "../../../assets/imgs/cody-image.jpg";
-import { ResponsiveContainer } from "../../common/layout"
+import { ResponsiveContainer } from "../../common/layout";
 
 export const Footer = () => {
   return (

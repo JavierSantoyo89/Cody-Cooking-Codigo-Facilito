@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-
 import { auth } from "../firebase/credentials";
 import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 

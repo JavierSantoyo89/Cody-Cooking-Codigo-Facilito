@@ -1,6 +1,5 @@
-
 :root {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -8,10 +7,10 @@
   color: #fafafa;
   background-color: #324251;
   --white: #fafafa;
-  --light-green: #87C159;
+  --light-green: #87c159;
   --dark-green: #058240;
-  --yelow: #F3C301;
-  --grey-innactive: #50504D;
+  --yelow: #f3c301;
+  --grey-innactive: #50504d;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,7 +18,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -64,7 +64,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #008244
+  border-color: #008244;
 }
 button:focus,
 button:focus-visible {

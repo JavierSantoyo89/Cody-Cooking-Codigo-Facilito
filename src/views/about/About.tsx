@@ -112,17 +112,17 @@ export const About = () => {
               Jose Montenegro Garzón
             </td>
             <td align="center">
-            Buen programador pero no da mucha informacion sobre el
+              Buen programador pero no da mucha informacion sobre el
             </td>
           </tr>
           <tr>
-          <td align="center">
+            <td align="center">
               <Link to="https://www.linkedin.com">Linkedin</Link>
-              <p>mail: josemoga83@gmail.com</p></td>
+              <p>mail: josemoga83@gmail.com</p>
+            </td>
           </tr>
         </tbody>
       </table>
-     
     </div>
   );
 };

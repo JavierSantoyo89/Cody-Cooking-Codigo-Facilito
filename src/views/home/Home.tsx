@@ -14,7 +14,7 @@ export const Home = () => {
       console.log("despues de validar", afterLogin);
     }
     isLoading ? setIsLoading(false) : null;
-  }, []);
+  }, [afterLogin, isLoading, setAfterLogin]);
 
   function notifyCredentials() {
     toast.info("Bienvenido a Cody Cooking", {
