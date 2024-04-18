@@ -63,9 +63,9 @@ const Details = () => {
                     <DetailContainer>
                         <IngredientTitle>INGREDIENTS</IngredientTitle>
                         <ul>
-                            <IngredientLI>1lb ingrediente 1</IngredientLI>
-                            <IngredientLI>1lb ingrediente 1</IngredientLI>
-                            <IngredientLI>1lb ingrediente 1</IngredientLI>
+                            {recipeDetailData.ingredients.map((ing) => (
+                                <IngredientLI>{ing}</IngredientLI>
+                            ))}
                         </ul>
                     </DetailContainer>
                     <DetailContainer>
