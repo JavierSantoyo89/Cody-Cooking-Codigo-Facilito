@@ -1,15 +1,13 @@
-import { useParams } from 'react-router-dom';
-
-import { useGetRecipesService } from '../../hooks/useGetRecipes';
-import { baseUrl } from '../../constants'
-
+import { useParams } from "react-router-dom";
+import { useGetRecipesService } from "../../hooks/useGetRecipes";
+import { baseUrl } from "../../constants";
 import styled from "styled-components";
-import RecipesList from '../../components/RecipesList';
-import { CardContainer } from '../../components/RecipeCard';
+import RecipesList from "../../components/RecipesList";
+import { CardContainer } from "../../components/RecipeCard";
 import MainWrapper from "../../components/common/MainWrapper";
 import { Title as BaseTitle } from "../../components/common/titles";
-// import { GridDetailContainer } from "../../components/common/ui";
-
+import Pdfdocs from "../../components/pdfdocs/Pdfdocs";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 const recipesHardCode = [
     {
         description: "Preheat the oven to 180°C/350°F/Gas Mark 4. Grease and line the base of an 8 in round spring form cake tin with baking parchment\r\nBreak the chocolate into a heatproof bowl and place over a saucepan of gently simmering water and stir until it melts. (or melt in the microwave for 2-3 mins stirring occasionally)\r\nPlace the butter and sugar in a mixing bowl and cream together with a wooden spoon until light and fluffy. Gradually beat in the eggs, adding a little flour if the mixture begins to curdle. Fold in the remaining flour with the cooled, melted chocolate and milk. Mix until smooth.\r\nSpread the mixture into the cake tin and bake for 50-55 mins or until firm in the centre and a skewer comes out cleanly. Cool for 10 minutes, then turn out and cool completely.",
@@ -38,140 +36,157 @@ const recipesHardCode = [
 ]
 
 const Details = () => {
-    const { id } = useParams();
-    const { recipes } = useGetRecipesService(`${baseUrl}lookup.php?i=${id}`);
+  const { id } = useParams();
+  const { recipes } = useGetRecipesService(`${baseUrl}lookup.php?i=${id}`);
+  const recipeDetailData = recipes[0];
 
-    const recipeDetailData = recipes[0];
+  if (!recipeDetailData) return null;
+  return (
+    <MainWrapper>
+      <Title>{recipeDetailData.title}</Title>
 
-    if (!recipeDetailData) return null;
+      <DetailImg src={recipeDetailData.image} />
 
-    return (
-        <MainWrapper>
-            <Title>{recipeDetailData.title}</Title>
-            <DetailImg src={recipeDetailData.image} />
-                <LeftContainer>
-                    <DetailContainer>
-                        <DetailSubtitle>Instructions</DetailSubtitle>
-                        <DetailParagraph>
-                            {recipeDetailData.description}
-                        </DetailParagraph>
-                    </DetailContainer>
-                    <DetailContainer className="videoResponsive">
-                        <VideoResponsive
-                            src={`https://www.youtube.com/embed/${recipeDetailData.video}`}
-                        />
-                    </DetailContainer>
-                </LeftContainer>
-                <RightContainer>
-                    <DetailContainer>
-                        <IngredientTitle>INGREDIENTS</IngredientTitle>
-                        <ul>
-                            {recipeDetailData.ingredients.map((ing) => (
-                                <IngredientLI>{ing}</IngredientLI>
-                            ))}
-                        </ul>
-                    </DetailContainer>
-                    <DetailContainer>
-                        <SimilarTitle>RECETAS SIMILARES</SimilarTitle>
-                        <RecipesSection>
-                            <RecipesList recipes={recipesHardCode} />
-                        </RecipesSection>
-                    </DetailContainer>
-                </RightContainer>
-
-        </MainWrapper>
-    );
+      <LeftContainer>
+        <DetailContainer>
+          <DetailSubtitle>Instructions</DetailSubtitle>
+          <DetailParagraph>{recipeDetailData.description}</DetailParagraph>
+        </DetailContainer>
+        <DetailContainer className="videoResponsive">
+          <VideoResponsive
+            src={`https://www.youtube.com/embed/${recipeDetailData.video}`}
+          />
+        </DetailContainer>
+        <PDFDownloadLink
+          document={
+            <Pdfdocs
+              title={recipeDetailData.title}
+              img={recipeDetailData.image}
+              description={recipeDetailData.description}
+            />
+          }
+          fileName="CodyCooking.pdf"
+        >
+          {({
+            loading,
+            // url, error, blob
+          }) =>
+            loading ? (
+              <button>Loading document ...</button>
+            ) : (
+              <button>Download now!</button>
+            )
+          }
+        </PDFDownloadLink>
+      </LeftContainer>
+      <RightContainer>
+        <DetailContainer>
+          <IngredientTitle>INGREDIENTS</IngredientTitle>
+          <ul>
+            <IngredientLI>1lb ingrediente 1</IngredientLI>
+            <IngredientLI>1lb ingrediente 1</IngredientLI>
+            <IngredientLI>1lb ingrediente 1</IngredientLI>
+          </ul>
+        </DetailContainer>
+        <DetailContainer>
+          <SimilarTitle>RECETAS SIMILARES</SimilarTitle>
+          <RecipesSection>
+            <RecipesList recipes={recipesHardCode} />
+          </RecipesSection>
+        </DetailContainer>
+      </RightContainer>
+    </MainWrapper>
+  );
 };
 
 const Title = styled(BaseTitle)`
-    color: #F3C301;
-    margin-bottom: 30px;
-    text-align: center;
+  color: #f3c301;
+  margin-bottom: 30px;
+  text-align: center;
 `;
 
 const DetailImg = styled.img`
-    max-width: 950px;
-    width: 100%;
-    max-height: 540px;
-    object-fit: cover;
-    margin: 10px auto;
-    border-radius: 100px;
-`
+  max-width: 950px;
+  width: 100%;
+  max-height: 540px;
+  object-fit: cover;
+  margin: 10px auto;
+  border-radius: 100px;
+`;
 const DetailContainer = styled.div`
-    width: 100%;
-    padding: 20px;
-    &.videoResponsive {
-        height: 0;
-        overflow: hidden;
-        padding-bottom: 56.25%;
-        padding-top: 30px;
-        position: relative;
-    }
-
-`
+  width: 100%;
+  padding: 20px;
+  &.videoResponsive {
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    position: relative;
+  }
+`;
 
 const DetailSubtitle = styled.h2`
-    color: #333;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-`
+  color: #333;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+`;
 const DetailParagraph = styled.p`
-    color: #262522;
-    line-height: 140%;
-    width: 100%;
-`
+  color: #262522;
+  line-height: 140%;
+  width: 100%;
+`;
 
 const IngredientTitle = styled.h3`
-    color: #F3C301;
-    letter-spacing: 0.36px;
-    text-transform: uppercase;
-`
+  color: #f3c301;
+  letter-spacing: 0.36px;
+  text-transform: uppercase;
+`;
 const IngredientLI = styled.li`
-    color: #262522;
-`
+  color: #262522;
+`;
 
 const VideoResponsive = styled.iframe`
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-`
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+`;
 
 const SimilarTitle = styled.h4`
-    color: #F3C301;
-    letter-spacing: 0.36px;
-    text-transform: uppercase;
-`
+  color: #f3c301;
+  letter-spacing: 0.36px;
+  text-transform: uppercase;
+`;
 
 const RecipesSection = styled.div`
-    ${CardContainer} {
-        margin-bottom: 20px;
-    }
+  ${CardContainer} {
+    margin-bottom: 20px;
+  }
 `;
 
 const DetailCols = styled.div`
-    display: inline-grid;
-    width: calc(50% - 10px);
+  display: inline-grid;
+  width: calc(50% - 10px);
 
-    @media (max-width: 620px) {
-        width: 100%;
-    }    
+  @media (max-width: 620px) {
+    width: 100%;
+  }
 `;
 
 const LeftContainer = styled(DetailCols)`
-    @media (max-width: 620px) {
-        margin-bottom: 20px;
-    } 
+  @media (max-width: 620px) {
+    margin-bottom: 20px;
+  }
 `;
 
 const RightContainer = styled(DetailCols)`
-    background: #F9F2D5;
-    margin-left: 20px;
+  background: #f9f2d5;
+  margin-left: 20px;
 
-    @media (max-width: 620px) {
-        margin-left: 0;
-    } 
+  @media (max-width: 620px) {
+    margin-left: 0;
+  }
 `;
 
 export default Details;

@@ -26,6 +26,11 @@ export const Home = () => {
   return (
     <div>
       {isLoading === true ? <Loading /> : null}
+      {/* <PDFDownloadLink document={<Pdfdocs />} fileName="CodyCooking.pdf">Download
+      <Pdfdocs />
+      </PDFDownloadLink> */}
+  
+      
       <Main />
       <ToastContainer
         position="bottom-right"
