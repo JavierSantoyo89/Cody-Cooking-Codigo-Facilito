@@ -30,13 +30,8 @@ Cody cooking ayudando en la cocina…
 <table>
     <tbody>
         <tr>
-            <td rowspan=4 align="center"><img src="./utils/Agustin.jpg" alt="Agustin" width="280px">Agustín Sebastián Piuca Quevedo</td>
-            <td align="center">Soy una persona recien graduada de la Tecnicatura de ingeniería en sistemas y me interesa mucho el área del Frontend, tengo conocimientos bastante amplios en tecnologías como HTML, CSS, Javascript, React entre otros.
-
-Actualmente me sigo formando como Frontend Developer para poder ejercer funciones de dicho stack y sacar proyectos adelante de la mano de personas con otros perfiles.
-
-Tengo mucha curiosidad por el lado del Diseño UX/UI para poder crear interfaces bastante funcionales y llamativas de cara a los usuarios, y así lograr un perfíl de UI Developer, por lo que tambien estoy viendo bastante material relacionado a ello.</td>
-
+            <td rowspan=4 align="center"><img src="./utils/Agustin.jpg" alt="Agustin" width="650px">Agustín Sebastián Piuca Quevedo</td>
+            <td align ="center">Soy un desarrollador que le interesa mucho el área del Frontend, tengo conocimientos bastante amplios en tecnologías como HTML, CSS, y Javascript. Actualmente me sigo formando como Frontend Developer para poder ejercer funciones de dicho stack y sacar proyectos adelante de la mano de personas con otros perfiles, tambien tengo mucha curiosidad por el lado del Diseño UX/UI para crear interfaces de usuario increíbles.</td>
 </tr>
 <tr>
 <td align="center">
@@ -48,7 +43,7 @@ Tengo mucha curiosidad por el lado del Diseño UX/UI para poder crear interfaces
 <table>
     <tbody>
         <tr>
-            <td rowspan=4 align="center"><img src="./utils/Javier.jpg" alt="Javier" width="280px">Francisco Javier Santoyo Rios</td>
+            <td rowspan=4 align="center"><img src="./utils/Javier.jpg" alt="Javier" width="326px">Francisco Javier Santoyo Rios</td>
             <td align="center">Soy desarrollador web Full Stack especializado en backend, frontend y testing, titulado en LTI. A pesar de tener una discapacidad motriz, busco oportunidades de desarrollo remoto.
             <br>
             Tengo experiencia en proyectos remotos, trabajando con responsabilidad, en equipo y siguiendo las políticas de privacidad del cliente/empresa. Estoy comprometido con ofrecer soluciones de calidad en el desarrollo web.
