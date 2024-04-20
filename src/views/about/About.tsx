@@ -7,7 +7,7 @@ import MainWrapper from "../../components/common/MainWrapper";
 import agustin from "../../assets/imgs/Agustin.jpg";
 import javier from "../../assets/imgs/Javier.jpg";
 import mayra from "../../assets/imgs/Mayra.jpg";
-import jose from "../../assets/imgs/jose.jpg";
+import jose from "../../assets/imgs/Jose.jpg";
 import styled from "styled-components";
 export const About = () => {
   const [isLoading, setIsLoading] = useState(true);

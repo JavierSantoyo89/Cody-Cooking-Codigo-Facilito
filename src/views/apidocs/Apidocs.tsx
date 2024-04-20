@@ -148,7 +148,9 @@ const TableContainer = styled.section`
 const Paragraph = styled.p`
   border: 1px solid #2b2b2b;
   height: 100%;
+
   &.link {
+    display: inline;
     font-weight: bold;
     font-size: 1.5rem;
     border: none;
