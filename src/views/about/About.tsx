@@ -9,6 +9,8 @@ import javier from "../../assets/imgs/Javier.jpg";
 import mayra from "../../assets/imgs/Mayra.jpg";
 import jose from "../../assets/imgs/Jose.jpg";
 import styled from "styled-components";
+import Linkedin from "../../assets/icons/linkedin-logo.svg";
+import Portafolio from "../../assets/icons/portfolio-logo.svg";
 export const About = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -44,7 +46,7 @@ export const About = () => {
             to="https://www.linkedin.com/in/agustin-sebastian-piuca-quevedo"
             target="_blank"
           >
-            <SocialLogo src="/src/assets/icons/linkedin-logo.svg" alt="linkedin-logo" />
+            <SocialLogo src={Linkedin} alt="linkedin-logo" />
           </Link>
         </SocialContainer>
       </CustomGrid>
@@ -70,7 +72,7 @@ export const About = () => {
             to="https://www.linkedin.com/in/javiersantoyor/"
             target="_blank"
           >
-            <SocialLogo src="/src/assets/icons/linkedin-logo.svg" alt="linkedin-logo" />
+            <SocialLogo src={Linkedin} alt="linkedin-logo" />
           </Link>
           <Link
             to="https://twitter.com/FcoSantoyoRios"
@@ -82,7 +84,7 @@ export const About = () => {
             to="https://javiersantoyo.dev/"
             target="_blank"
           >
-            <SocialLogo src="/src/assets/icons/portfolio-logo.svg" alt="" />
+            <SocialLogo src={Portafolio} alt="" />
           </Link>
         </SocialContainer>
       </CustomGrid>
