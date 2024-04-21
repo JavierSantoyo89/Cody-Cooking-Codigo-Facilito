@@ -1,20 +1,14 @@
 import { useEffect } from "react";
 import Routes from "./routes/routes";
-import { auth } from "./firebase/credentials";
+import { auth } from "./auth/credentials";
 import { useUserStore } from "./store/userState";
-import { onAuthStateChanged, } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 
 import "./App.css";
 
 export default function App() {
-  const { 
-    setIsLogged,
-    setUser, 
-    setUserName, 
-    setEmail, 
-    setPhotoURL,
-    setUid 
-  } = useUserStore();
+  const { setIsLogged, setUser, setUserName, setEmail, setPhotoURL, setUid } =
+    useUserStore();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
@@ -26,28 +20,24 @@ export default function App() {
           firebaseUser.photoURL !== undefined &&
           firebaseUser.uid !== undefined
         ) {
-          setUser(firebaseUser)
-          setUid (firebaseUser.uid)
-          setEmail(firebaseUser.email)
-          setUserName(firebaseUser.displayName)
-          setPhotoURL(firebaseUser.photoURL)
+          setUser(firebaseUser);
+          setUid(firebaseUser.uid);
+          setEmail(firebaseUser.email);
+          setUserName(firebaseUser.displayName);
+          setPhotoURL(firebaseUser.photoURL);
         } else {
-          console.error('Error: firebaseUser no tiene las propiedades necesarias.');
+          console.error(
+            "Error: firebaseUser no tiene las propiedades necesarias."
+          );
         }
-        // console.log(firebaseUser.displayName);
-        // console.log(firebaseUser.email);
-        // console.log(firebaseUser.photoURL);
-        // console.log(firebaseUser.uid);
       } else {
-        setUser(null); 
+        setUser(null);
       }
       setIsLogged(!!firebaseUser);
-  });
+    });
 
-  return () => unsubscribe();
-
+    return () => unsubscribe();
   }, [setUser]);
 
-return <Routes />;
+  return <Routes />;
 }
-

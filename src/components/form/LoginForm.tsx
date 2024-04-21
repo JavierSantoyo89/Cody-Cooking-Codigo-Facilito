@@ -12,9 +12,9 @@ import {
 } from "../common/ui";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useUserStore } from "../../store/userState";
-import loginWithEmailPassword from "../../functions/loginWithEmailPassword";
-import registerUser from "../../functions/registerUser";
-import { loginWithGoogle } from "../../functions/loginWithGoogle";
+import loginWithEmailPassword from "../../auth/functions/loginWithEmailPassword";
+import registerUser from "../../auth/functions/registerUser";
+import { loginWithGoogle } from "../../auth/functions/loginWithGoogle";
 import cody from "../../assets/imgs/Cody.svg";
 import googleLogo from "../../assets/icons/GoogleLogo.svg";
 import { ToastContainer, toast } from "react-toastify";

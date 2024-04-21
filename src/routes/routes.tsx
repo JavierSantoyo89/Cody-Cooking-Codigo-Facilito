@@ -1,10 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import PrivateRoute from "./PrivateRoute";
 import { Layout } from "../components/parcials/layout/Layout";
+import PrivateRoute from "./PrivateRoute";
 import { Home } from "../views/home/Home";
+import Recipes from "../views/recipes";
 import Login from "../views/login/Login";
 import Favorites from "../views/favorites";
-import Recipes from "../views/recipes";
 import Detail from "../views/detail/Detail";
 import { About } from "../views/about/About";
 import Apidocs from "../views/apidocs/Apidocs";

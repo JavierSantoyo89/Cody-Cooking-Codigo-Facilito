@@ -13,9 +13,7 @@ const useDataFetch = async () => {
     setIsData(data);
   } catch (error) {
     console.log("Error de fechin:", error);
-  } finally {
-    // console.log("finalizo el fetch");
-  }
+  } 
   }
   return { isLoading, data, getFetch };
 };

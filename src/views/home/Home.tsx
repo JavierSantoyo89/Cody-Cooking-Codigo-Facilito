@@ -12,7 +12,6 @@ export const Home = () => {
     if (afterLogin) {
       notifyCredentials();
       setAfterLogin(false);
-      console.log("despues de validar", afterLogin);
     }
     isLoading ? setIsLoading(false) : null;
   }, []);
@@ -26,9 +25,6 @@ export const Home = () => {
   return (
     <div>
       {isLoading === true ? <Loading /> : null}
-      {/* <PDFDownloadLink document={<Pdfdocs />} fileName="CodyCooking.pdf">Download
-      <Pdfdocs />
-      </PDFDownloadLink> */}
   
       
       <Main />

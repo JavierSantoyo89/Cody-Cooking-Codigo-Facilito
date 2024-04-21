@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import HeartIcon from "../../common/icons/HeartIcon";
 import useFavorites from "../../../hooks/useFavorites";
-import logOut from "../../../functions/logOut";
+import logOut from "../../../auth/functions/logOut";
 import {
   ResponsiveContainer,
   HeaderContainer,
