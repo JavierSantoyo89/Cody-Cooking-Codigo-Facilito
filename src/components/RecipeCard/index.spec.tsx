@@ -14,6 +14,7 @@ describe('RecipeCard', () => {
         description: 'Recipe description',
         video: 'video',
         isFavorite: false,
+        ingredients: [],        
         toogleFavorite: toogleFavoriteFn,
     }
 

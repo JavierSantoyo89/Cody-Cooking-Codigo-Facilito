@@ -66,6 +66,7 @@ const RecipeCard = ({
     description: string;
     video: string;
     isFavorite: boolean;
+    ingredients: string[] | [];
     toogleFavorite: (newFavorite: Recipe) => void;
 }) => {
 
@@ -82,6 +83,7 @@ const RecipeCard = ({
             title,
             description,
             video,
+            ingredients: [],
         });
     }, [id, image, title, description, video, toogleFavorite]);
 
