@@ -21,6 +21,15 @@ Welcome to the team, this is the basic about the project, if you have any questi
 
 [Figma](https://www.figma.com/file/6ThLmgDx4MBJiY7gcbl4Iz/Cody-Cooking-Prototype?type=design&node-id=0%3A1&mode=design&t=jgKdDBiHnHxM1gM8-1)
 
+## Roles
+
+|    Rol    |   Titular     |
+| ---------- | ---------- |
+| Lider  | Jose Montenegro Garzón |
+| UI/UX | Agustín Sebastián Piuca Quevedo |
+| Dev | Mayra Macedo |
+| DevOPs | Francisco Javier Santoyo Rios |
+
 ## Fetch structure
 
 Site: [The meal db](https://www.themealdb.com/api.php)

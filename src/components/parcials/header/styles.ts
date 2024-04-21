@@ -7,8 +7,10 @@ const ResponsiveContainer = styled(BaseContainer)`
 `;
 
 const HeaderContainer = styled.header`
-  background-color: white;
+  background-color: #fafafa;
   border-radius: 32px;
+  border: 1px solid #2b2b2b50;
+  box-shadow: 0px 4px 24px rgba(38, 37, 34, 0.25);
   color: #262522;
   padding: 1rem;
   display: flex;

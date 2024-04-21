@@ -5,8 +5,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: #fafafa;
-  background-color: #324251;
+  color: #2b2b2b;
+  background-color: #fafafa;
   --white: #fafafa;
   --light-green: #87C159;
   --dark-green: #058240;
@@ -23,6 +23,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  cursor: url(assets/icons/codyCursor2.png), auto;
 }
 
 * {
@@ -45,6 +46,10 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+.dot .selected {
+  background: var(--dark-green);
 }
 
 button {

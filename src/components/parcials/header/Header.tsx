@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import HeartIcon from "../../common/icons/HeartIcon";
 import useFavorites from "../../../hooks/useFavorites";
 import logOut from "../../../functions/logOut";
-
 import {
   ResponsiveContainer,
   HeaderContainer,
@@ -20,22 +19,15 @@ import {
 import cody from "../../../assets/imgs/cody-image.jpg";
 import { useUserStore } from "../../../store/userState";
 export const Header = () => {
-  // const uid: string | null = useUserStore((state) => state.uid);
   const { numberFavorites } = useFavorites();
- 
   const reset = useUserStore((state) => state.reset);
   const isLogged = useUserStore((state) => state.isLogged);
-
-  
 
   const handleLogOut = () => {
     logOut();
     reset();
   };
 
-
-  
-  
   return (
     <ResponsiveContainer>
       <HeaderContainer>
@@ -54,10 +46,10 @@ export const Header = () => {
             <Link to="/recipes">RECETAS</Link>
           </MarginSection>
           <MarginSection>
-            <Link to="/perfil">TIPOS DE COCINA</Link>
+            <Link to="/apidocs">API DOCS</Link>
           </MarginSection>
           <MarginSection>
-            <Link to="/perfil">SOBER NOSOTROS</Link>
+            <Link to="/about">SOBRE NOSOTROS</Link>
           </MarginSection>
         </CenterSection>
         <RightSection>
@@ -78,7 +70,7 @@ export const Header = () => {
               </SubscribeButton>
             </>
           )}
-        </RightSection> 
+        </RightSection>
       </HeaderContainer>
     </ResponsiveContainer>
   );
