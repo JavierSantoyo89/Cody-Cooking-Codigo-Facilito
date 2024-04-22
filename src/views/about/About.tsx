@@ -7,7 +7,7 @@ import MainWrapper from "../../components/common/MainWrapper";
 import agustin from "../../assets/imgs/Agustin.jpg";
 import javier from "../../assets/imgs/Javier.jpg";
 import mayra from "../../assets/imgs/Mayra.jpg";
-import jose from "../../assets/imgs/Jose.jpg";
+import jose from "../../assets/imgs/jose.jpg";
 import styled from "styled-components";
 import Linkedin from "../../assets/icons/linkedin-logo.svg";
 import Portafolio from "../../assets/icons/portfolio-logo.svg";
@@ -15,10 +15,8 @@ export const About = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    isLoading ? setIsLoading(false) : null;
+    isLoading ? setIsLoading(false) : null; 
   }, [isLoading]);
-
-
 
   return (
     <MainWrapper>
