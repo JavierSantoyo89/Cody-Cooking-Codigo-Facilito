@@ -1,4 +1,4 @@
-import {create} from "zustand";
+import { create } from "zustand";
 import type { User } from "firebase/auth";
 
 interface UserState {
@@ -14,8 +14,8 @@ interface UserState {
   setPhotoURL: (photoURL: string | null) => void;
   uid: string | null;
   setUid: (uid: string | null) => void;
-  afterLogin: boolean
-  setAfterLogin: (afterLogin: boolean) => void
+  afterLogin: boolean;
+  setAfterLogin: (afterLogin: boolean) => void;
   reset: () => void;
   displayName?: string | null;
 }
@@ -35,12 +35,13 @@ export const useUserStore = create<UserState>((set) => ({
   setUid: (uid) => set({ uid }),
   afterLogin: true,
   setAfterLogin: (afterLogin) => set({ afterLogin }),
-  reset: () => set({ 
-    isLogged: false,
-    user: null, 
-    email: null, 
-    photoURL: null, 
-    uid: null, 
-    afterLogin: true
-  }),
+  reset: () =>
+    set({
+      isLogged: false,
+      user: null,
+      email: null,
+      photoURL: null,
+      uid: null,
+      afterLogin: true,
+    }),
 }));

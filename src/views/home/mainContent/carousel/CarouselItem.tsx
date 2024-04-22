@@ -1,18 +1,17 @@
-import { FC, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { FC, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { Button } from '../../../../components/common/ui';
-import { Title as BaseTitle } from '../../../../components/common/titles';
-import type { Category } from '../../../../types/categories';
-import { useRestClient } from '../../../../hooks/useRestClient';
-import { baseUrl } from '../../../../constants';
-
+import { Button } from "../../../../components/common/ui";
+import { Title as BaseTitle } from "../../../../components/common/titles";
+import type { Category } from "../../../../types/categories";
+import { useRestClient } from "../../../../hooks/useRestClient";
+import { baseUrl } from "../../../../constants";
 
 import styled from "styled-components";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 interface Props {
-  category: Category
+  category: Category;
 }
 
 const Title = styled(BaseTitle)`
@@ -39,7 +38,7 @@ const TitleContainer = styled.div`
   text-align: center;
 `;
 
-const ItemContainer = styled.div<{bg: string}>`
+const ItemContainer = styled.div<{ bg: string }>`
   align-items: center;
   background-image: ${({ bg }: { bg: string }) => `url(${bg})`};
   background-size: cover;
@@ -57,33 +56,27 @@ const ItemContainer = styled.div<{bg: string}>`
 const ViewMoreButton = styled(Button)``;
 
 const CarouselItem: FC<Props> = ({ category }) => {
-  const [get, meals] = useRestClient('get');
+  const [get, meals] = useRestClient("get");
   const navigate = useNavigate();
 
-
   const handleClick = () => {
-     get(`${baseUrl}filter.php?c=${category.strCategory}`)
-  }
+    get(`${baseUrl}filter.php?c=${category.strCategory}`);
+  };
 
   useEffect(() => {
     if (Array.isArray(meals?.meals) && meals?.meals.length > 0) {
-        navigate(`/detail/${meals.meals[0].idMeal}`);
+      navigate(`/detail/${meals.meals[0].idMeal}`);
     }
-  }, [meals, navigate])
-
+  }, [meals, navigate]);
 
   return (
     <ItemContainer bg={category.strCategoryThumb} key={category.idCategory}>
-        <TitleContainer>
-            <Title>{category.strCategory}</Title>
-            <ViewMoreButton onClick={handleClick}>
-                VER MÁS
-            </ViewMoreButton>
-        </TitleContainer>
-    </ItemContainer> 
+      <TitleContainer>
+        <Title>{category.strCategory}</Title>
+        <ViewMoreButton onClick={handleClick}>VER MÁS</ViewMoreButton>
+      </TitleContainer>
+    </ItemContainer>
   );
-}
-
-
+};
 
 export default CarouselItem;

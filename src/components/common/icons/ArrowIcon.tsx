@@ -6,7 +6,7 @@ const ArrowIcon = (props: any) => {
       height="20"
       viewBox="0 0 30 30"
       fill="currentColor"
-      data-testid="arrow-icon" 
+      data-testid="arrow-icon"
       {...props}
     >
       <path

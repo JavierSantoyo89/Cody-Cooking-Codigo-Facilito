@@ -9,7 +9,7 @@ describe("Error404", () => {
     render(
       <Router>
         <Error404 />
-      </Router>
+      </Router>,
     );
 
     // Verificar que el título "404" esté presente
@@ -32,7 +32,7 @@ describe("Button", () => {
     const { getByText } = render(
       <MemoryRouter>
         <Error404 />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     const button = getByText(/Volver al Home/i);
@@ -45,7 +45,7 @@ describe("Button", () => {
     const { getByTestId } = render(
       <Button>
         <ArrowIcon />
-      </Button>
+      </Button>,
     );
 
     const svgElement = getByTestId("arrow-icon");

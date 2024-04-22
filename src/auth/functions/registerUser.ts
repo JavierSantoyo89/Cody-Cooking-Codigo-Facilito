@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 //!***** Create User manual ***** //
 export default async function registerUser(
   { email }: { email: string },
-  { password }: { password: string }
+  { password }: { password: string },
 ): Promise<boolean> {
   try {
     await createUserWithEmailAndPassword(auth, email, password);

@@ -65,7 +65,7 @@ const Login = () => {
     } else {
       const userLoggedSuccessfully = await loginWithEmailPassword(
         { email },
-        { password }
+        { password },
       );
       setFailedLogin(!userLoggedSuccessfully);
       {
@@ -90,19 +90,19 @@ const Login = () => {
   function notifyMail() {
     toast.info(
       `.... Ingresa un correo valido .... \n Debe tener Mínimo 5 caracteres \n example@codycooking.com`,
-      { icon: () => <img src={cody} height={42} alt="cody" /> }
+      { icon: () => <img src={cody} height={42} alt="cody" /> },
     );
   }
   function notifypassword() {
     toast.info(
       `....... Revisa tu password ....... \n Debe tener Mínimo 5 caracteres `,
-      { icon: () => <img src={cody} height={40} alt="cody" /> }
+      { icon: () => <img src={cody} height={40} alt="cody" /> },
     );
   }
   function notifyname() {
     toast.info(
       `Ingresa tu nombre de usuario \n Debe tener Mínimo 5 caracteres \n`,
-      { icon: () => <img src={cody} height={40} alt="cody" /> }
+      { icon: () => <img src={cody} height={40} alt="cody" /> },
     );
   }
 
@@ -271,7 +271,8 @@ const GoogleButton = styled.button`
   font-family: "Roboto";
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.08),
+  box-shadow:
+    0px 0px 3px 0px rgba(0, 0, 0, 0.08),
     0px 2px 3px 0px rgba(0, 0, 0, 0.17);
   border-radius: 30px;
   border: 1px solid #ddd;

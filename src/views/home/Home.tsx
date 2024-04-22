@@ -25,8 +25,7 @@ export const Home = () => {
   return (
     <div>
       {isLoading === true ? <Loading /> : null}
-  
-      
+
       <Main />
       <ToastContainer
         position="bottom-right"
@@ -43,4 +42,3 @@ export const Home = () => {
     </div>
   );
 };
-

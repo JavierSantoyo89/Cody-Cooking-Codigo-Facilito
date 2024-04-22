@@ -5,13 +5,11 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 
 export default async function loginWithEmailPassword(
   { email }: { email: string },
-  { password }: { password: string }
+  { password }: { password: string },
 ): Promise<boolean> {
   try {
-
     await signInWithEmailAndPassword(auth, email, password);
     return true;
-    
   } catch (error) {
     return false;
   }

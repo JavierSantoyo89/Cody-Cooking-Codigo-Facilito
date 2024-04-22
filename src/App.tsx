@@ -27,7 +27,7 @@ export default function App() {
           setPhotoURL(firebaseUser.photoURL);
         } else {
           console.error(
-            "Error: firebaseUser no tiene las propiedades necesarias."
+            "Error: firebaseUser no tiene las propiedades necesarias.",
           );
         }
       } else {
