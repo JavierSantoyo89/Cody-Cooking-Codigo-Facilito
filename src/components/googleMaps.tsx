@@ -1,6 +1,3 @@
-
 export const googleMaps = () => {
-  return (
-    <div>googleMaps</div>
-  )
-}
+  return <div>googleMaps</div>;
+};

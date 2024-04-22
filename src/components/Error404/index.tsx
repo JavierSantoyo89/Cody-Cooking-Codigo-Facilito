@@ -12,7 +12,7 @@ const Error404 = () => {
       <Link to="/">
         <Button>
           <ContainerIcon>
-            <ArrowIcon        />
+            <ArrowIcon />
           </ContainerIcon>
           Volver al Home
         </Button>
@@ -69,5 +69,5 @@ const ContainerIcon = styled.span`
   border-radius: inherit;
   display: flex;
   align-items: center;
-   justify-content: center;
+  justify-content: center;
 `;

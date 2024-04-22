@@ -81,9 +81,13 @@ const Pdfdocs: React.FC<Props> = ({ title, img, description }) => {
             render={({ pageNumber, totalPages }) => `Page ${pageNumber} of ${totalPages}`}
           ></Text>
         </View> */}
-        <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
-        `${pageNumber} / ${totalPages}`
-      )} fixed />
+        <Text
+          style={styles.pageNumber}
+          render={({ pageNumber, totalPages }) =>
+            `${pageNumber} / ${totalPages}`
+          }
+          fixed
+        />
       </Page>
     </Document>
   );

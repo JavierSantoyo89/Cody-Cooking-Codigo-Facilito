@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { ResponsiveContainer as BaseContainer } from "../../common/layout"
-
+import { ResponsiveContainer as BaseContainer } from "../../common/layout";
 
 const ResponsiveContainer = styled(BaseContainer)`
   padding: 30px 0;
@@ -17,7 +16,6 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-
 
   @media (max-width: 960px) {
     gap: 20px;
@@ -52,23 +50,23 @@ const Text = styled.p`
 `;
 
 const RightSection = styled.div`
-    align-items: center;
-    display: flex;
-    position: relative;
+  align-items: center;
+  display: flex;
+  position: relative;
 `;
 
 const NumberFavorites = styled.div`
-    background: #80c160;
-    border-radius: 15px;
-    color: #ffffff;
-    font-size: 8px;
-    font-weight: 600;
-    height: 15px;
-    left: -5px;
-    line-height: 15px;
-    position: absolute;
-    text-align: center;
-    width: 15px;
+  background: #80c160;
+  border-radius: 15px;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 600;
+  height: 15px;
+  left: -5px;
+  line-height: 15px;
+  position: absolute;
+  text-align: center;
+  width: 15px;
 `;
 
 const Icon = styled.div`
@@ -111,7 +109,7 @@ const MarginSection = styled.div`
 `;
 
 const SubscribeButton = styled.button`
-  background-color: #87C159;
+  background-color: #87c159;
   color: #ffffff;
   border: none;
   border-radius: 20px;
@@ -133,16 +131,16 @@ const SubscribeButton = styled.button`
 `;
 
 export {
-    ResponsiveContainer,
-    HeaderContainer,
-    LeftSection,
-    Logo,
-    TextContainer,
-    Text,
-    RightSection,
-    Icon,
-    CenterSection,
-    MarginSection,
-    SubscribeButton,
-    NumberFavorites,
-}
+  ResponsiveContainer,
+  HeaderContainer,
+  LeftSection,
+  Logo,
+  TextContainer,
+  Text,
+  RightSection,
+  Icon,
+  CenterSection,
+  MarginSection,
+  SubscribeButton,
+  NumberFavorites,
+};
